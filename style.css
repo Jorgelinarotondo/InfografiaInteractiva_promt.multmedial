@@ -1,0 +1,402 @@
+/* =========================================================
+   PORTADA — ESCENARIO 16:9 (1440 × 810)
+   Corrección: subtítulo y CTA ahora entran en pantalla.
+========================================================= */
+
+.portada {
+    overflow: visible;
+}
+
+.portada > * {
+    position: absolute;
+}
+
+
+/* =========================================================
+   DECORACIÓN SUPERIOR IZQUIERDA
+========================================================= */
+
+.decoracion-superior {
+    left: 60px;
+    top: 44px;
+    width: 140px;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: .18em;
+    color: rgba(209, 205, 255, .8);
+    z-index: 10;
+}
+
+.linea-decorativa {
+    width: 28px;
+    height: 1px;
+    margin-top: 12px;
+    background: rgba(209, 205, 255, .6);
+    animation: none; /* estático */
+    transform-origin: left;
+}
+
+@keyframes linea-crece {
+    50% { transform: scaleX(2.2); }
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.titulo-imagenes {
+    left: 400px;
+    top: 40px;
+    margin: 0;
+    font-family: var(--fuente-titulo);
+    font-size: 132px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -.01em;
+    color: #F5F3FF;
+    white-space: nowrap;
+    z-index: 5;
+}
+
+.titulo-con {
+    left: 404px;
+    top: 196px;
+    font-family: var(--fuente-texto);
+    font-size: 92px;
+    font-weight: 300;
+    line-height: 1;
+    color: rgba(209, 205, 255, .9);
+    z-index: 5;
+}
+
+.titulo-ia {
+    left: 900px;
+    top: 170px;
+    font-family: var(--fuente-titulo);
+    font-size: 190px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -.01em;
+    background: linear-gradient(90deg, #4737FF 0%, #ACA5FF 30%, #D1CDFF 50%, #F08BCB 70%, #4737FF 100%);
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    z-index: 5;
+    animation: none; /* estático */
+}
+
+@keyframes brillo-ia {
+    to { background-position: -220% 0; }
+}
+
+
+/* =========================================================
+   CAPAS CON PARALLAX
+========================================================= */
+
+.capa-parallax {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    will-change: transform;
+}
+
+.capa-parallax > * {
+    position: absolute;
+}
+
+.capa-principal {
+    z-index: 3;
+}
+
+
+/* =========================================================
+   IMAGEN PRINCIPAL (flota suavemente)
+========================================================= */
+
+.imagen-principal {
+    left: 470px;
+    top: 220px;
+    width: 500px;
+    height: 336px;
+    object-fit: contain;
+    animation: none; /* estático */
+    filter: drop-shadow(0 30px 60px rgba(71, 55, 255, .35));
+}
+
+@keyframes flotar-imagen {
+    0%, 100% { translate: 0 0; rotate: 0deg; }
+    50% { translate: 0 -14px; rotate: -1.5deg; }
+}
+
+/* Órbita con punto que gira */
+.orbita {
+    left: 440px;
+    top: 300px;
+    width: 560px;
+    height: 180px;
+    border-radius: 50%;
+    border: 1px solid rgba(209, 205, 255, .14);
+    transform: rotate(-8deg);
+}
+
+.orbita span {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    animation: none; /* estático */
+}
+
+.orbita span::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--rosa);
+    box-shadow: 0 0 16px 4px rgba(228, 119, 207, .7);
+}
+
+@keyframes girar {
+    to { transform: rotate(360deg); }
+}
+
+
+/* =========================================================
+   DECORACIONES — fijas a los bordes reales de la pantalla
+========================================================= */
+
+.decos-pantalla {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.decos-pantalla .capa-parallax {
+    position: absolute;
+    width: auto;
+    height: auto;
+}
+
+.decos-pantalla .deco-der-capa {
+    left: auto;
+    right: 0;
+    top: 14vh;
+}
+
+.decos-pantalla .deco-izq-capa {
+    left: 0;
+    top: auto;
+    bottom: -6vh;
+}
+
+.deco-derecha {
+    display: block;
+    position: relative !important;
+    height: calc(485px * var(--escala));
+    width: auto;
+    animation: none; /* estático */
+}
+
+.deco-izquierda {
+    display: block;
+    position: relative !important;
+    height: calc(470px * var(--escala));
+    width: auto;
+    animation: none; /* estático */
+}
+
+/* =========================================================
+   PREGUNTA
+========================================================= */
+
+.recorte {
+    left: 0;
+    top: 572px;
+    width: 100%;
+    text-align: center;
+    z-index: 6;
+}
+
+.recorte h2 {
+    display: inline-block;
+    margin: 0;
+    font-family: var(--fuente-titulo);
+    font-size: 54px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: .005em;
+    color: #F5F3FF;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   TEXTO INTRODUCTORIO
+========================================================= */
+
+.intro-trivia {
+    left: 0;
+    top: 640px;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: .02em;
+    color: rgba(209, 205, 255, .9);
+    z-index: 6;
+}
+
+.intro-trivia strong {
+    color: #fff;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   BOTÓN TRIVIA (CTA)
+========================================================= */
+
+.cta-zona {
+    left: 0;
+    top: 690px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.boton-trivia {
+    position: relative;
+    width: 440px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    border: 1px solid rgba(209, 205, 255, .75);
+    border-radius: 36px;
+    background: linear-gradient(90deg, #3B2CFF 0%, #6B3FFF 45%, #D77BEB 100%);
+    background-size: 200% 100%;
+    box-shadow:
+        0 0 55px rgba(180, 92, 255, .25),
+        0 0 25px rgba(107, 63, 255, .55);
+    cursor: pointer;
+    transition:
+        box-shadow .3s ease,
+        background-position .6s ease;
+    overflow: visible;
+}
+
+/* Brillo que cruza el botón */
+.boton-trivia::after {
+    display: none;
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, .35) 50%, transparent 65%);
+    background-size: 250% 100%;
+    animation: none; /* estático */
+    pointer-events: none;
+}
+
+@keyframes barrido {
+    0% { background-position: 150% 0; }
+    60%, 100% { background-position: -100% 0; }
+}
+
+/* Anillos que "llaman" a hacer click */
+.anillo {
+    position: absolute;
+    inset: -2px;
+    border-radius: 40px;
+    border: 2px solid rgba(228, 119, 207, .7);
+    animation: none; /* estático */
+    pointer-events: none;
+}
+
+.anillo-2 {
+    animation-delay: 1.2s;
+}
+
+@keyframes anillo {
+    from { transform: scale(1); opacity: .9; }
+    to { transform: scale(1.18, 1.5); opacity: 0; }
+}
+
+.texto-boton {
+    position: relative;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: .1em;
+    color: #FFFFFF;
+    white-space: nowrap;
+}
+
+.flecha {
+    position: relative;
+    width: 39px;
+    height: 20px;
+    flex-shrink: 0;
+    transition: transform .35s var(--ease-out);
+}
+
+.flecha-linea {
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 39px;
+    height: 2px;
+    background: #FFFFFF;
+}
+
+.flecha-punta {
+    position: absolute;
+    right: 0;
+    top: 5.4px;
+    width: 9px;
+    height: 9px;
+    border-top: 2px solid #FFFFFF;
+    border-right: 2px solid #FFFFFF;
+    transform: rotate(45deg);
+}
+
+.boton-trivia:hover {
+    background-position: 100% 0;
+    box-shadow:
+        0 0 75px rgba(180, 92, 255, .45),
+        0 0 32px rgba(107, 63, 255, .8);
+}
+
+.boton-trivia:hover .flecha {
+    transform: translateX(8px);
+}
+
+.boton-trivia:focus-visible {
+    outline: 2px solid #D1CDFF;
+    outline-offset: 5px;
+}
+
+body.pagina-lista .imagen-principal.anim {
+    filter: drop-shadow(0 30px 60px rgba(71, 55, 255, .35));
+}
+
+
+/* MODO ESTÁTICO */
+.fondo-ambiente .grano { display: none; }

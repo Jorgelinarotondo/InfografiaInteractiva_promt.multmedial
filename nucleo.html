@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IA como herramienta</title>
+
+    <!-- TIPOGRAFÍAS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="comun.css">
+    <link rel="stylesheet" href="nucleo.css">
+</head>
+
+<body>
+
+<main class="nucleo escenario seccion-limites" id="nucleo">
+
+    <!-- BRILLO DE FONDO -->
+    <div class="brillo-fondo"></div>
+
+
+    <!-- ==================================================
+         BARRA SUPERIOR: dónde estoy + menú con etiquetas
+    =================================================== -->
+
+    <div class="miga anim" data-anim="baja" style="--d:0s">
+        <span class="miga-punto"></span> IA COMO HERRAMIENTA
+    </div>
+
+    <nav class="nav-principal compacta anim" data-anim="baja" style="--d:.1s" data-actual="nucleo" id="menu-principal"></nav>
+
+
+    <!-- ==================================================
+         TÍTULO + CONCEPTO DE LA SECCIÓN
+    =================================================== -->
+
+    <div class="cabecera anim" data-anim="izq" style="--d:.2s">
+
+        <h1 id="titulo-seccion" class="titulo-seccion">LÍMITES</h1>
+
+        <div class="concepto-seccion" id="concepto">
+            <img id="icono-frase" class="icono-frase" src="imagenes/limite descripcion.png" alt="">
+            <p id="frase" class="frase">
+                GENERAR <span>NO ES LO MISMO</span><br>QUE DISEÑAR
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         RUEDA / TUERCA (gira al cambiar de tema)
+    =================================================== -->
+
+    <div class="rueda" id="rueda">
+        <img id="rueda-imagen" src="imagenes/tuerca límites.png" alt="">
+    </div>
+
+    <button id="flecha-rueda" class="flecha-rueda" type="button" aria-label="Siguiente tema">
+        <img src="imagenes/flecha para abajo nucleo.png" alt="">
+        <span class="flecha-rueda-texto">
+            <small>SIGUIENTE TEMA</small>
+            <b id="siguiente-tema">EDITAR</b>
+        </span>
+    </button>
+
+
+    <!-- ==================================================
+         CARRUSEL
+    =================================================== -->
+
+    <section class="card-principal" id="carrusel" aria-live="polite">
+
+        <div class="imagen-preview-contenedor" id="preview-contenedor">
+            <img id="imagen-preview" class="imagen-preview" src="" alt="">
+        </div>
+
+        <div class="imagen-card-contenedor" id="card-contenedor">
+            <img id="imagen-card" class="imagen-card" src="imagenes/nucleo limites 1.png" alt="">
+            <div class="texto-sobre-imagen">
+                <span class="texto-numero" id="texto-numero">01</span>
+                <p id="texto-card" class="texto-card"></p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- CONTROLES DEL CARRUSEL — indicador de cantidad DEBAJO del carrusel
+         (corrección: antes estaba debajo de la flecha y confundía) -->
+
+    <div class="controles anim" data-anim="sube" style="--d:.6s" id="controles">
+
+        <button class="control-flecha" id="anterior" type="button" aria-label="Imagen anterior">
+            <span>‹</span>
+        </button>
+
+        <div class="indicador">
+            <div class="indicador-segmentos" id="segmentos"></div>
+            <div class="indicador-texto">
+                IMAGEN <b id="num-actual">01</b> DE <b id="num-total">06</b>
+            </div>
+        </div>
+
+        <button class="control-flecha principal" id="flecha-card" type="button" aria-label="Siguiente imagen">
+            <span>›</span>
+        </button>
+
+    </div>
+
+
+
+</main>
+
+<script src="comun.js"></script>
+<script src="nucleo.js"></script>
+
+</body>
+
+</html>

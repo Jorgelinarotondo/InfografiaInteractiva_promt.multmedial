@@ -1,0 +1,831 @@
+/* =========================================================
+   TRIVIA — ESCENARIO 16:9 (1440 × 810)
+========================================================= */
+
+.trivia > * {
+    position: absolute;
+}
+
+
+/* =========================================================
+   TINTE DE FONDO (verde = correcto / rojo = incorrecto)
+========================================================= */
+
+.tinte {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .7s ease, background .7s ease;
+}
+
+.tinte.verde {
+    opacity: 1;
+    background:
+        radial-gradient(ellipse 70% 60% at 50% 55%, rgba(24, 133, 42, .55), transparent 75%),
+        rgba(24, 133, 42, .18);
+}
+
+.tinte.rojo {
+    opacity: 1;
+    background:
+        radial-gradient(ellipse 70% 60% at 50% 55%, rgba(169, 0, 22, .55), transparent 75%),
+        rgba(169, 0, 22, .18);
+}
+
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.trivia-header {
+    left: 80px;
+    right: 80px;
+    top: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.trivia-header h1 {
+    margin: 0;
+    font-family: var(--fuente-titulo);
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: .02em;
+}
+
+.progreso {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 6px;
+    border-radius: 14px;
+}
+
+.progreso-barras {
+    display: flex;
+    gap: 6px;
+}
+
+.progreso-barras span {
+    position: relative;
+    width: 64px;
+    height: 8px;
+    border-radius: 8px;
+    background: rgba(209, 205, 255, .18);
+    overflow: hidden;
+}
+
+.progreso-barras span::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--degradado);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .8s var(--ease-expo);
+}
+
+.progreso-barras span.hecha::after {
+    transform: scaleX(1);
+}
+
+.progreso-barras span.actual::after {
+    transform: scaleX(.5);
+    animation: none; /* estático */
+}
+
+@keyframes barra-actual {
+    50% { opacity: .55; }
+}
+
+.contador {
+    min-width: 92px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #4737FF;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(71, 55, 255, .4);
+}
+
+
+/* =========================================================
+   LÍNEA
+========================================================= */
+
+.linea {
+    left: 80px;
+    top: 104px;
+    width: 1280px;
+    height: 3px;
+    background: linear-gradient(90deg, #4737ff, #ac5aff);
+}
+
+
+/* =========================================================
+   PREGUNTA
+========================================================= */
+
+.pregunta {
+    left: 0;
+    top: 126px;
+    width: 100%;
+    text-align: center;
+    z-index: 5;
+}
+
+.titulo-pregunta {
+    margin: 0;
+    font-family: var(--fuente-titulo);
+    font-size: 76px;
+    font-weight: 400;
+    line-height: 1;
+    white-space: nowrap;
+    animation: titulo-entra .7s var(--ease-expo) both;
+}
+
+.trivia.respondida .titulo-pregunta {
+    animation: veredicto .8s var(--ease-expo) both;
+}
+
+.trivia.es-correcta .titulo-pregunta {
+    color: #9BFFB4;
+    text-shadow: 0 0 40px rgba(124, 242, 160, .5);
+}
+
+.trivia.es-incorrecta .titulo-pregunta {
+    color: #FFB0BA;
+    text-shadow: 0 0 40px rgba(255, 90, 110, .45);
+}
+
+@keyframes titulo-entra {
+    from { opacity: 0; transform: translateY(24px); filter: blur(8px); }
+}
+
+@keyframes veredicto {
+    0% { opacity: 0; transform: scale(.6); letter-spacing: .3em; }
+    60% { opacity: 1; transform: scale(1.06); }
+    100% { transform: scale(1); letter-spacing: 0; }
+}
+
+.bajada {
+    margin: 14px 0 0;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: rgba(245, 243, 255, .88);
+}
+
+.bajada strong {
+    color: #fff;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   OPCIONES
+========================================================= */
+
+.opciones {
+    left: 0;
+    top: 262px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    z-index: 5;
+    perspective: 1000px;
+}
+
+.vs {
+    align-self: center;
+    margin-top: -40px;
+    width: 70px;
+    height: 70px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid rgba(209, 205, 255, .3);
+    background: rgba(21, 20, 40, .6);
+    font-family: var(--fuente-titulo);
+    font-size: 24px;
+    color: var(--lila-claro);
+    transition: opacity .4s ease, transform .5s var(--ease-expo);
+}
+
+.trivia.respondida .vs {
+    opacity: 0;
+    transform: scale(.5);
+}
+
+.opcion {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    transition: opacity .5s ease, transform .6s var(--ease-expo), filter .5s ease;
+}
+
+.opcion:disabled {
+    cursor: default;
+}
+
+/* Entrada escalonada de las tarjetas */
+.trivia.entrando .opcion,
+body.pagina-lista .trivia:not(.entrando) .opcion {
+    animation: tarjeta-entra .8s var(--ease-expo) both;
+}
+
+.opcion[data-letra="B"] {
+    animation-delay: .12s !important;
+}
+
+body:not(.pagina-lista) .opcion {
+    opacity: 0;
+}
+
+@keyframes tarjeta-entra {
+    from { opacity: 0; transform: translateY(60px) rotateX(18deg); }
+}
+
+.trivia.saliendo-pregunta .opcion,
+.trivia.saliendo-pregunta .pregunta,
+.trivia.saliendo-pregunta .info-disenador,
+.trivia.saliendo-pregunta .boton-siguiente {
+    opacity: 0 !important;
+    transform: translateY(-30px);
+    transition: opacity .35s ease, transform .4s ease;
+}
+
+
+/* =========================================================
+   TARJETA DE IMAGEN (con inclinación 3D y brillo)
+========================================================= */
+
+.tarjeta-imagen {
+    position: relative;
+    width: 290px;
+    height: 330px;
+    padding: 14px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #4737ff, #d06cff);
+    box-shadow:
+        0 0 15px rgba(71, 55, 255, .6),
+        0 0 35px rgba(172, 90, 255, .4),
+        0 30px 60px rgba(0, 0, 0, .35);
+    transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transform-style: preserve-3d;
+    transition:
+        transform .5s var(--ease-out),
+        box-shadow .4s ease,
+        background .4s ease;
+}
+
+.tarjeta-imagen img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 15px;
+    background: #fff;
+}
+
+/* Brillo que sigue al mouse */
+.tarjeta-imagen::after {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border-radius: 15px;
+    background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, .35), transparent 45%);
+    opacity: 0;
+    transition: opacity .3s ease;
+    pointer-events: none;
+}
+
+.opcion:not(:disabled):hover .tarjeta-imagen {
+    box-shadow:
+        0 0 25px rgba(71, 55, 255, .9),
+        0 0 60px rgba(228, 119, 207, .55),
+        0 40px 70px rgba(0, 0, 0, .4);
+}
+
+.opcion:not(:disabled):hover .tarjeta-imagen::after {
+    opacity: 1;
+}
+
+.letra {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #aaa7ff, #7065e8);
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .25);
+    z-index: 2;
+}
+
+/* Sello IA / HUMANO que aparece al responder */
+.sello {
+    position: absolute;
+    right: -18px;
+    top: -18px;
+    z-index: 3;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-family: var(--fuente-titulo);
+    font-size: 22px;
+    letter-spacing: .06em;
+    color: #fff;
+    opacity: 0;
+    transform: scale(2.2) rotate(-14deg);
+    pointer-events: none;
+}
+
+.opcion.es-ia .sello {
+    background: linear-gradient(135deg, #4737FF, #E477CF);
+    box-shadow: 0 10px 30px rgba(71, 55, 255, .6);
+    animation: sello .55s var(--ease-expo) .15s forwards;
+}
+
+.opcion.es-humana .sello {
+    background: #F5F3FF;
+    color: #0B0B13;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+    animation: sello .55s var(--ease-expo) .3s forwards;
+}
+
+@keyframes sello {
+    to { opacity: 1; transform: scale(1) rotate(8deg); }
+}
+
+/* Estados al responder */
+.opcion.elegida .tarjeta-imagen {
+    transform: scale(1.04);
+}
+
+.trivia.es-correcta .opcion.elegida .tarjeta-imagen {
+    background: linear-gradient(135deg, #22c55e, #9BFFB4);
+    box-shadow: 0 0 50px rgba(124, 242, 160, .6), 0 30px 60px rgba(0, 0, 0, .35);
+}
+
+.trivia.es-incorrecta .opcion.elegida .tarjeta-imagen {
+    background: linear-gradient(135deg, #dc2626, #FFB0BA);
+    box-shadow: 0 0 50px rgba(255, 90, 110, .55), 0 30px 60px rgba(0, 0, 0, .35);
+}
+
+.trivia.respondida .opcion:not(.elegida) {
+    filter: saturate(.85);
+}
+
+.sacudir {
+    animation: sacudir .55s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+@keyframes sacudir {
+    10%, 90% { translate: -2px 0; }
+    20%, 80% { translate: 4px 0; }
+    30%, 50%, 70% { translate: -8px 0; }
+    40%, 60% { translate: 8px 0; }
+}
+
+
+/* =========================================================
+   BOTÓN "ELEGIR" Y ETIQUETA DE RESULTADO
+========================================================= */
+
+.boton-opcion {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 170px;
+    height: 44px;
+    margin-top: 22px;
+    padding: 0 24px;
+    border: 1px solid #ac5aff;
+    border-radius: 25px;
+    background: linear-gradient(90deg, #4737ff, #c45aff);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    box-shadow: 0 0 10px rgba(71, 55, 255, .6);
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        transform .3s var(--ease-out),
+        opacity .3s ease;
+}
+
+.boton-opcion b {
+    font-size: 19px;
+}
+
+.opcion:not(:disabled):hover .boton-opcion {
+    background: #F75C03;
+    border-color: #F75C03;
+    transform: translateY(-3px);
+}
+
+.trivia.respondida .boton-opcion {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.etiqueta-resultado {
+    position: absolute;
+    left: 50%;
+    top: 352px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px;
+    padding: 0 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translate(-50%, 12px);
+    transition: opacity .45s ease .25s, transform .6s var(--ease-expo) .25s;
+}
+
+.etiqueta-resultado i {
+    font-style: normal;
+    font-size: 17px;
+}
+
+.trivia.respondida .etiqueta-resultado {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+.opcion.es-ia .etiqueta-resultado {
+    background: linear-gradient(90deg, #4737ff, #c45aff);
+    color: #fff;
+}
+
+.opcion.es-humana .etiqueta-resultado {
+    background: #F5F3FF;
+    color: #0B0B13;
+}
+
+
+/* =========================================================
+   INFORMACIÓN DEL DISEÑADOR
+========================================================= */
+
+.info-disenador {
+    left: 80px;
+    top: 668px;
+    width: 860px;
+    min-height: 96px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 16px 24px;
+    border-radius: 18px;
+    background: rgba(245, 243, 255, .96);
+    color: #0B0B13;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .35);
+    z-index: 6;
+    opacity: 0;
+    transform: translateY(30px);
+    pointer-events: none;
+    transition: opacity .5s ease, transform .7s var(--ease-expo);
+}
+
+.info-disenador.visible {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+
+.info-icono {
+    flex: 0 0 auto;
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: var(--degradado);
+    color: #fff;
+}
+
+.info-titulo {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    color: #6B3FFF;
+}
+
+.info-disenador p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.35;
+}
+
+.info-disenador strong {
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   BOTÓN SIGUIENTE
+========================================================= */
+
+.boton-siguiente {
+    right: 80px;
+    top: 686px;
+    z-index: 7;
+    opacity: 0;
+    transform: translateY(20px) scale(.95);
+    pointer-events: none;
+    transition:
+        opacity .4s ease,
+        transform .6s var(--ease-expo),
+        box-shadow .35s ease,
+        background-position .6s ease;
+}
+
+.boton-siguiente.visible {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    animation: none; /* estático */
+}
+
+@keyframes latido {
+    50% { box-shadow: 0 0 70px rgba(228, 119, 207, .55), 0 0 30px rgba(107, 63, 255, .8); }
+}
+
+
+/* =========================================================
+   RESULTADO FINAL
+========================================================= */
+
+.trivia.en-final .pregunta,
+.trivia.en-final .opciones,
+.trivia.en-final .info-disenador,
+.trivia.en-final .boton-siguiente {
+    opacity: 0 !important;
+    transform: translateY(-20px) !important;
+    pointer-events: none !important;
+    transition: opacity .4s ease, transform .5s ease;
+}
+
+.final {
+    left: 0;
+    top: 150px;
+    width: 100%;
+    height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 8;
+}
+
+.final.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.final-grafico {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform: scale(.7) rotate(-20deg);
+    opacity: 0;
+    transition: transform 1s var(--ease-expo), opacity .6s ease;
+}
+
+.final.visible .final-grafico {
+    transform: none;
+    opacity: 1;
+}
+
+.aro {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.aro-fondo {
+    fill: none;
+    stroke: rgba(209, 205, 255, .12);
+    stroke-width: 18;
+}
+
+.aro-valor {
+    fill: none;
+    stroke: url(#grad-aro);
+    stroke-width: 18;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1.6s var(--ease-expo) .3s;
+}
+
+.final-numero {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    padding-top: 92px;
+    font-family: var(--fuente-titulo);
+    font-size: 110px;
+    line-height: 1;
+}
+
+.final-numero small {
+    font-size: 44px;
+    color: var(--lila);
+}
+
+.final-textos {
+    width: 520px;
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity .7s ease .25s, transform .9s var(--ease-expo) .25s;
+}
+
+.final.visible .final-textos {
+    opacity: 1;
+    transform: none;
+}
+
+.final-etiqueta {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    color: var(--rosa);
+}
+
+.final-textos h2 {
+    margin: 8px 0 12px;
+    font-family: var(--fuente-titulo);
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.final-textos p {
+    margin: 0 0 22px;
+    font-size: 19px;
+    line-height: 1.4;
+    color: rgba(245, 243, 255, .88);
+}
+
+.final-textos p strong {
+    color: #fff;
+}
+
+.final-resumen {
+    display: flex;
+    gap: 10px;
+    margin: 0 0 30px;
+    padding: 0;
+    list-style: none;
+}
+
+.final-resumen li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: resumen-entra .5s var(--ease-expo) forwards;
+    animation-delay: calc(.8s + var(--k) * .15s);
+}
+
+.final-resumen li b {
+    font-size: 12px;
+    letter-spacing: .1em;
+    opacity: .75;
+}
+
+.final-resumen li.ok {
+    background: rgba(124, 242, 160, .15);
+    border: 1px solid rgba(124, 242, 160, .5);
+    color: #9BFFB4;
+}
+
+.final-resumen li.no {
+    background: rgba(255, 90, 110, .14);
+    border: 1px solid rgba(255, 90, 110, .5);
+    color: #FFB0BA;
+}
+
+@keyframes resumen-entra {
+    to { opacity: 1; transform: none; }
+}
+
+
+/* =========================================================
+   CONFETI
+========================================================= */
+
+.confeti {
+    position: fixed;
+    inset: 0;
+    z-index: 12000;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confeti i {
+    position: absolute;
+    top: 55vh;
+    border-radius: 2px;
+    animation: confeti 2.2s cubic-bezier(.2, .7, .3, 1) forwards;
+}
+
+@keyframes confeti {
+    0% { transform: translate(0, 0) rotate(0); opacity: 1; }
+    45% { transform: translate(calc(var(--x) * .8), var(--y)) rotate(calc(var(--r) * .5)); opacity: 1; }
+    100% { transform: translate(var(--x), 60vh) rotate(var(--r)); opacity: 0; }
+}
+
+
+/* =========================================================
+   BOTÓN DE AYUDA EN ESTA PANTALLA (abajo a la izquierda)
+========================================================= */
+
+.boton-ayuda {
+    right: auto;
+    left: 22px;
+    transform-origin: left bottom;
+}
+
+.trivia.entrando .opcion {
+    animation-name: tarjeta-entra-2 !important;
+}
+
+@keyframes tarjeta-entra-2 {
+    from { opacity: 0; transform: translateY(60px) rotateX(18deg); }
+}
+
+
+/* =========================================================
+   MODO ESTÁTICO — sin sellos que "golpean", sin brillos
+========================================================= */
+
+.opcion.es-ia .sello,
+.opcion.es-humana .sello {
+    animation: sello-simple .4s ease .2s forwards;
+}
+
+@keyframes sello-simple {
+    from { opacity: 0; transform: rotate(8deg); }
+    to { opacity: 1; transform: rotate(8deg); }
+}
+
+.trivia.respondida .titulo-pregunta {
+    animation: titulo-entra .5s ease both;
+    text-shadow: none !important;
+}
+
+.tarjeta-imagen::after { display: none; }
+
+.tarjeta-imagen,
+.opcion:not(:disabled):hover .tarjeta-imagen {
+    box-shadow: 0 20px 45px rgba(0, 0, 0, .35);
+}
+
+.trivia.es-correcta .opcion.elegida .tarjeta-imagen,
+.trivia.es-incorrecta .opcion.elegida .tarjeta-imagen {
+    box-shadow: 0 20px 45px rgba(0, 0, 0, .35);
+}
+
+.opcion.elegida .tarjeta-imagen { transform: none; }

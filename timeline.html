@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Línea del tiempo — Imágenes con IA</title>
+
+    <!-- TIPOGRAFÍAS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="comun.css">
+    <link rel="stylesheet" href="timeline.css">
+</head>
+
+<body>
+
+<main class="timeline escenario" id="timeline">
+
+
+    <!-- =====================================================
+         BARRA SUPERIOR
+    ====================================================== -->
+
+    <div class="miga anim" data-anim="baja" style="--d:0s">
+        <span class="miga-punto"></span> LÍNEA DEL TIEMPO
+    </div>
+
+    <nav class="nav-principal compacta anim" data-anim="baja" style="--d:.1s" data-actual="timeline" id="menu-principal"></nav>
+
+
+    <!-- =====================================================
+         TÍTULO PRINCIPAL
+    ====================================================== -->
+
+    <h1 class="titulo-principal anim" data-anim="mascara" style="--d:.2s">
+        CÓMO EVOLUCIONARON LAS IMÁGENES CON IA
+    </h1>
+
+    <div class="linea-principal anim" data-anim="mascara" style="--d:.35s"></div>
+
+
+    <!-- =====================================================
+         TEXTO DEL AÑO
+    ====================================================== -->
+
+    <section class="texto-anio anim" data-anim="izq" style="--d:.4s" id="texto-anio">
+
+        <div class="anio-fila">
+            <h2 class="anio" id="anio">AÑO - 2014</h2>
+            <img class="icono-anio" id="icono-anio" src="imagenes/icono pantalla 1.png" alt="">
+        </div>
+
+        <h3 class="titulo-anio" id="titulo-anio">LA IA APRENDE A CREAR</h3>
+
+        <div class="linea-secundaria"></div>
+
+        <div class="informacion" id="informacion"></div>
+
+    </section>
+
+
+    <!-- =====================================================
+         COMPOSICIÓN DE IMÁGENES
+    ====================================================== -->
+
+    <div class="imagen-contenedor anim" data-anim="zoom" style="--d:.5s" id="imagen-contenedor">
+
+        <div class="imagen-fondo-1"></div>
+        <div class="imagen-fondo-2"></div>
+
+        <img class="imagen-timeline imagen-activa" data-index="0" src="imagenes/imagen 2014.png" alt="">
+        <img class="imagen-timeline" data-index="1" src="imagenes/imagen 2016.png" alt="">
+        <img class="imagen-timeline" data-index="2" src="imagenes/imagen 2018.png" alt="">
+        <img class="imagen-timeline" data-index="3" src="imagenes/imagen 2021.png" alt="">
+        <img class="imagen-timeline" data-index="4" src="imagenes/imagen 2022.png" alt="">
+        <img class="imagen-timeline" data-index="5" src="imagenes/imagen 2023.png" alt="">
+        <img class="imagen-timeline" data-index="6" src="imagenes/imagen 2024.png" alt="">
+        <img class="imagen-timeline" data-index="7" src="imagenes/imagen 2025-2026.png" alt="">
+
+        <div class="iluminacion-imagen"></div>
+
+        <span class="lupa" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+            AMPLIAR
+        </span>
+
+        <p class="texto-imagen" id="texto-imagen">GANs: rostros generados durante el entrenamiento.</p>
+
+    </div>
+
+
+    <!-- =====================================================
+         SLIDER CON LOS AÑOS (infografía de la evolución)
+    ====================================================== -->
+
+    <div class="slider anim" data-anim="sube" style="--d:.65s" id="slider">
+
+        <div class="slider-barra">
+            <div class="slider-relleno" id="slider-relleno"></div>
+        </div>
+
+        <div class="slider-hitos" id="slider-hitos"></div>
+
+        <div class="slider-circulo" id="slider-circulo" role="slider" aria-label="Año" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0">
+            <span class="circulo-flechas" aria-hidden="true">‹ ›</span>
+        </div>
+
+        <!-- MANO QUE INDICA ARRASTRAR (se va al usarlo) -->
+        <div class="pista-arrastre" id="pista-arrastre" aria-hidden="true">
+            <img src="imagenes/dedo icono.png" alt="">
+            <span>ARRASTRÁ O TOCÁ UN AÑO</span>
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- =====================================================
+     MODAL PARA AGRANDAR IMAGEN
+====================================================== -->
+
+<div class="modal-imagen" id="modal-imagen" aria-hidden="true">
+    <div class="modal-contenido">
+        <img id="imagen-ampliada" src="" alt="Imagen ampliada">
+        <p class="modal-pie" id="modal-pie"></p>
+        <button class="cerrar-imagen" id="cerrar-imagen" type="button" aria-label="Cerrar">×</button>
+    </div>
+</div>
+
+
+<script src="comun.js"></script>
+<script src="timeline.js"></script>
+
+</body>
+
+</html>

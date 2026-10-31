@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Diseñadores vs IA</title>
+
+    <!-- TIPOGRAFÍAS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="comun.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-pagina="inicio">
+
+    <!-- DECORACIONES PEGADAS A LOS BORDES DE LA PANTALLA (con parallax) -->
+    <div class="decos-pantalla" aria-hidden="true">
+        <div class="capa-parallax deco-der-capa" data-profundidad="-18">
+            <img class="deco-derecha" src="imagenes/Deco de la derecha.png" alt="">
+        </div>
+        <div class="capa-parallax deco-izq-capa" data-profundidad="-26">
+            <img class="deco-izquierda" src="imagenes/Deco de la izquierda.png" alt="">
+        </div>
+    </div>
+
+    <main class="portada escenario">
+
+        <!-- DECORACIÓN SUPERIOR IZQUIERDA -->
+        <div class="decoracion-superior anim" data-anim="baja" style="--d:.1s">
+            <span>DISEÑO</span>
+            <span>TECNOLOGÍA</span>
+            <span>IDEAS</span>
+            <div class="linea-decorativa"></div>
+        </div>
+
+        <!-- TÍTULO -->
+        <h1 class="titulo-imagenes" data-letras>Diseñadores</h1>
+
+        <div class="titulo-con anim" data-anim="izq" style="--d:.55s">VS</div>
+
+        <div class="titulo-ia anim" data-anim="zoom" style="--d:.7s">IA</div>
+
+        <!-- IMAGEN PRINCIPAL -->
+        <div class="capa-parallax capa-principal" data-profundidad="14">
+            <div class="orbita" aria-hidden="true">
+                <span></span>
+            </div>
+            <img
+                class="imagen-principal anim"
+                data-anim="desenfoque"
+                style="--d:.45s"
+                src="imagenes/Imagen principal.png"
+                alt=""
+            >
+        </div>
+
+        <!-- PREGUNTA -->
+        <section class="recorte">
+            <h2 class="anim" data-anim="mascara" style="--d:.95s">¿HERRAMIENTA O REEMPLAZO?</h2>
+        </section>
+
+        <!-- TEXTO -->
+        <p class="intro-trivia anim" data-anim="sube" style="--d:1.1s">
+            Algunas imágenes fueron creadas con IA. Otras, por diseñadoras.
+            <strong>¿Podés distinguirlas?</strong>
+        </p>
+
+        <!-- BOTÓN -->
+        <div class="cta-zona anim" data-anim="sube" style="--d:1.25s">
+            <button
+                type="button"
+                class="boton-trivia"
+                id="boton-trivia"
+               
+                aria-label="Poné a prueba tu mirada"
+            >
+                <span class="texto-boton">PONÉ A PRUEBA TU MIRADA</span>
+                <span class="flecha" aria-hidden="true">
+                    <span class="flecha-linea"></span>
+                    <span class="flecha-punta"></span>
+                </span>
+            </button>
+        </div>
+
+    </main>
+
+    <script src="comun.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            /* BOTÓN → TRIVIA */
+            const boton = document.getElementById("boton-trivia");
+            boton.addEventListener("click", () => irA("trivia.html"));
+
+            /* MINI TUTORIAL: si en 5 s nadie hace click, se muestra */
+            setTimeout(() => {
+                Tutorial.mostrar("inicio", [
+                    {
+                        el: "#boton-trivia",
+                        texto: "Hacé <strong>click en el botón</strong> para empezar. Vas a jugar una <strong>trivia de 3 preguntas</strong>.",
+                        gesto: "click",
+                        pos: "arriba",
+                        radio: 50,
+                        margen: 14
+                    }
+                ]);
+            }, 5000);
+        });
+    </script>
+
+</body>
+</html>

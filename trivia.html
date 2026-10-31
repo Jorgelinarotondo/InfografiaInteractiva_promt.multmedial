@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trivia — ¿Cuál fue creada por IA?</title>
+
+    <!-- TIPOGRAFÍAS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="comun.css">
+    <link rel="stylesheet" href="trivia.css">
+</head>
+
+<body>
+
+    <!-- TINTE DE FONDO SEGÚN RESPUESTA (verde / rojo) -->
+    <div class="tinte" id="tinte" aria-hidden="true"></div>
+
+    <main class="trivia escenario" id="trivia">
+
+        <!-- =====================================================
+             ENCABEZADO
+        ====================================================== -->
+
+        <header class="trivia-header anim" data-anim="baja" style="--d:0s">
+
+            <h1>TRIVIA</h1>
+
+            <div class="progreso" id="progreso" aria-label="Progreso de la trivia">
+                <div class="progreso-barras">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="contador" id="contador">1 / 3</div>
+            </div>
+
+        </header>
+
+        <div class="linea anim" data-anim="mascara" style="--d:.1s"></div>
+
+
+        <!-- =====================================================
+             PREGUNTA
+        ====================================================== -->
+
+        <section class="pregunta" id="pregunta">
+
+            <h2 id="titulo-pregunta" class="titulo-pregunta">¿Cuál fue creada por IA?</h2>
+
+            <p id="bajada" class="bajada">
+                Observá las dos imágenes y <strong>hacé click en la que creas que hizo la IA</strong>
+            </p>
+
+        </section>
+
+
+        <!-- =====================================================
+             OPCIONES  A / B
+        ====================================================== -->
+
+        <section class="opciones" id="opciones">
+
+            <button class="opcion" data-letra="A" type="button" aria-label="Elegir imagen A">
+                <div class="tarjeta-imagen">
+                    <span class="letra">A</span>
+                    <img src="imagenes/imagen A pantalla1 trivia.png" alt="Imagen A">
+                    <span class="sello" aria-hidden="true"></span>
+                </div>
+                <span class="boton-opcion">ELEGIR <b>A</b></span>
+                <span class="etiqueta-resultado"></span>
+            </button>
+
+            <div class="vs" aria-hidden="true">VS</div>
+
+            <button class="opcion" data-letra="B" type="button" aria-label="Elegir imagen B">
+                <div class="tarjeta-imagen">
+                    <span class="letra">B</span>
+                    <img src="imagenes/imagen trivia 1b.png" alt="Imagen B">
+                    <span class="sello" aria-hidden="true"></span>
+                </div>
+                <span class="boton-opcion">ELEGIR <b>B</b></span>
+                <span class="etiqueta-resultado"></span>
+            </button>
+
+        </section>
+
+
+        <!-- =====================================================
+             INFORMACIÓN DEL DISEÑADOR (aparece al responder)
+        ====================================================== -->
+
+        <aside class="info-disenador" id="info-disenador" aria-live="polite">
+            <div class="info-icono" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+            </div>
+            <div>
+                <span class="info-titulo">LA IMAGEN HECHA POR PERSONAS</span>
+                <p id="info-texto"></p>
+            </div>
+        </aside>
+
+
+        <!-- =====================================================
+             BOTÓN SIGUIENTE (reemplaza la flecha confusa)
+        ====================================================== -->
+
+        <button class="boton-pildora boton-siguiente" id="boton-siguiente" type="button">
+            <span id="texto-siguiente">SIGUIENTE PREGUNTA</span>
+            <span class="flechita">→</span>
+        </button>
+
+
+        <!-- =====================================================
+             RESULTADO FINAL
+        ====================================================== -->
+
+        <section class="final" id="final" aria-live="polite">
+
+            <div class="final-grafico">
+                <svg viewBox="0 0 220 220" class="aro">
+                    <defs>
+                        <linearGradient id="grad-aro" x1="0" x2="1" y1="0" y2="1">
+                            <stop offset="0" stop-color="#4737FF"/>
+                            <stop offset=".55" stop-color="#ACA5FF"/>
+                            <stop offset="1" stop-color="#F08BCB"/>
+                        </linearGradient>
+                    </defs>
+                    <circle cx="110" cy="110" r="92" class="aro-fondo"/>
+                    <circle cx="110" cy="110" r="92" class="aro-valor" id="aro-valor"/>
+                </svg>
+                <div class="final-numero"><span id="puntaje">0</span><small>/3</small></div>
+            </div>
+
+            <div class="final-textos">
+                <span class="final-etiqueta">TU RESULTADO</span>
+                <h2 id="final-titulo">¡Buen ojo!</h2>
+                <p id="final-texto"></p>
+
+                <ul class="final-resumen" id="final-resumen"></ul>
+
+                <button class="boton-pildora" id="boton-conclusion" type="button">
+                    VER LO QUE HAY DETRÁS <span class="flechita">→</span>
+                </button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="comun.js"></script>
+    <script src="trivia.js"></script>
+
+</body>
+
+</html>
