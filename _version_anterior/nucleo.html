@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Núcleo 2 - IA como herramienta</title>
+
+
+    <!-- ==================================================
+         TIPOGRAFÍAS
+    =================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- ==================================================
+         CSS
+    =================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="nucleo.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<main class="nucleo">
+
+
+    <!-- ==================================================
+         BRILLO DE FONDO
+    =================================================== -->
+
+    <div class="brillo-fondo"></div>
+
+
+    <!-- ==================================================
+         MENÚ SUPERIOR
+    =================================================== -->
+
+    <div class="menu-superior">
+
+    <!-- HERRAMIENTA / NÚCLEO -->
+
+    <button
+        class="menu-icono herramienta-button"
+        aria-label="Núcleo"
+    >
+        <img
+            src="imagenes/conclusion herramienta.png"
+            alt="Núcleo"
+        >
+    </button>
+
+
+    <!-- INICIO -->
+
+    <button
+        class="menu-icono home-button"
+        aria-label="Inicio"
+    >
+        <img
+            src="imagenes/home icono.png"
+            alt="Inicio"
+        >
+    </button>
+
+
+    <!-- LÍNEA DEL TIEMPO -->
+
+    <button
+        class="menu-icono reloj-button"
+        aria-label="Línea del tiempo"
+    >
+        <img
+            src="imagenes/icono reloj de arena.png"
+            alt="Línea del tiempo"
+        >
+    </button>
+
+</div>
+
+
+    <!-- ==================================================
+         TÍTULO DE LA SECCIÓN
+    =================================================== -->
+
+    <h1
+        id="titulo-seccion"
+        class="titulo-seccion"
+    >
+        LÍMITES
+    </h1>
+
+
+    <!-- ==================================================
+         FRASE / CONCEPTO DE LA SECCIÓN
+    =================================================== -->
+
+    <div class="concepto-seccion">
+
+        <img
+            id="icono-frase"
+            class="icono-frase"
+            src="imagenes/limite descripcion.png"
+            alt=""
+        >
+
+        <p
+            id="frase"
+            class="frase"
+        >
+            GENERAR
+            <span>NO ES LO MISMO</span>
+            <br>
+            QUE DISEÑAR
+        </p>
+
+    </div>
+
+
+    <!-- ==================================================
+         RUEDA / TUERCA
+         CAMBIA DE SECCIÓN
+    =================================================== -->
+
+    <div
+        class="rueda"
+        id="rueda"
+    >
+
+        <img
+            id="rueda-imagen"
+            src="imagenes/tuerca límites.png"
+            alt=""
+        >
+
+    </div>
+
+
+    <!-- ==================================================
+         CARD PRINCIPAL
+    =================================================== -->
+
+    <section
+    class="card-principal"
+    aria-live="polite"
+>
+
+    <!-- ==============================================
+         PREVIEW DE LA SIGUIENTE IMAGEN
+    =============================================== -->
+
+    <div class="imagen-preview-contenedor">
+
+        <img
+            id="imagen-preview"
+            class="imagen-preview"
+            src=""
+            alt=""
+        >
+
+    </div>
+
+
+    <!-- ==============================================
+         IMAGEN PRINCIPAL
+    =============================================== -->
+
+    <div class="imagen-card-contenedor">
+
+        <img
+            id="imagen-card"
+            class="imagen-card"
+            src="imagenes/nucleo limites 1.png"
+            alt=""
+        >
+
+
+        <!-- TEXTO SOBRE LA IMAGEN -->
+
+        <div class="texto-sobre-imagen">
+
+            <p
+                id="texto-card"
+                class="texto-card"
+            >
+                Pueden aparecer rasgos faciales poco realistas,
+                manos o anatomías incorrectas.
+            </p>
+
+            <div class="indicadores-card"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- ==================================================
+         FLECHA PARA CAMBIAR DE IMAGEN
+    =================================================== -->
+
+    <button
+        id="flecha-card"
+        class="flecha-card"
+        aria-label="Siguiente información"
+    >
+
+        <span class="chevron chevron-1"></span>
+
+        <span class="chevron chevron-2"></span>
+
+
+        <span
+            id="puntos-flecha"
+            class="puntos-flecha"
+        ></span>
+
+    </button>
+
+
+    <!-- ==================================================
+         RUEDA / BOTÓN PARA CAMBIAR DE SECCIÓN
+    =================================================== -->
+
+    <button
+        id="flecha-rueda"
+        class="flecha-rueda"
+        aria-label="Siguiente sección"
+    >
+
+        <img
+            src="imagenes/flecha para abajo nucleo.png"
+            alt="Siguiente sección"
+        >
+
+    </button>
+
+
+</main>
+
+
+<!-- ==================================================
+     JAVASCRIPT
+=================================================== -->
+
+<script src="nucleo.js"></script>
+
+
+</body>
+
+</html>

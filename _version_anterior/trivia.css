@@ -1,0 +1,709 @@
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+body {
+    min-height: 100vh;
+
+    background: #0B0B13;
+
+    color: white;
+
+    position: relative;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/* =========================================================
+   FONDO GENERAL
+========================================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background: linear-gradient(
+        to bottom,
+        #302A69 50%,
+        #0B0B13 100%
+    );
+
+    opacity: 0.25;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   REFERENCIA: 1440 × 1024
+========================================================= */
+
+.trivia {
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+    max-width: 1440px;
+
+    min-height: 1024px;
+
+    margin: 0 auto;
+
+    background: #0B0B13;
+
+    border: none;
+
+    padding-top: 0;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.trivia-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding-left: 80px;
+    padding-right: 128px;
+
+    min-height: 76px;
+}
+
+.trivia-header h1 {
+    font-family: "Anton", sans-serif;
+
+    font-size: 64px;
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   CONTADOR
+========================================================= */
+
+.contador {
+    width: 115px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #4737ff;
+
+    border-radius: 12px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   LÍNEA
+========================================================= */
+
+.linea {
+    width: calc(100% - 160px);
+
+    height: 3px;
+
+    margin-left: 80px;
+    margin-top: 12px;
+
+    background: linear-gradient(
+        90deg,
+        #4737ff,
+        #ac5aff
+    );
+}
+
+
+/* =========================================================
+   PREGUNTA
+========================================================= */
+
+.pregunta {
+    margin-left: 6.25%;
+    margin-top: 25px;
+}
+
+.pregunta h2 {
+    font-family: "Anton", sans-serif;
+
+    font-size: 94px;
+    font-weight: 400;
+
+    line-height: 1;
+
+    margin: 0;
+
+    white-space: nowrap;
+}
+
+.pregunta p {
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 30px;
+    font-weight: 400;
+
+    line-height: 1.3;
+
+    margin-top: 14px;
+
+    max-width: 1000px;
+}
+
+
+/* =========================================================
+   OPCIONES
+========================================================= */
+
+.opciones {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 152px;
+
+    margin-top: 40px;
+
+    padding: 0 40px;
+}
+
+
+/* =========================================================
+   CADA OPCIÓN
+========================================================= */
+
+.opcion {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    flex: 0 0 auto;
+}
+
+
+/* =========================================================
+   TARJETA DE IMAGEN
+========================================================= */
+
+.tarjeta-imagen {
+    position: relative;
+
+    width: 370px;
+    height: 420px;
+
+    padding: 18px;
+
+    border-radius: 25px;
+
+    background: linear-gradient(
+        135deg,
+        #4737ff,
+        #d06cff
+    );
+
+    box-shadow:
+        0 0 15px rgba(71, 55, 255, 0.8),
+        0 0 35px rgba(172, 90, 255, 0.6);
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   IMAGEN
+========================================================= */
+
+.tarjeta-imagen img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 17px;
+}
+
+
+/* =========================================================
+   LETRA A / B
+========================================================= */
+
+.letra {
+    position: absolute;
+
+    top: 22px;
+    left: 22px;
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #aaa7ff,
+        #7065e8
+    );
+
+    color: white;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 24px;
+    font-weight: 600;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   BOTONES A / B
+========================================================= */
+
+.boton-opcion {
+    width: 145px;
+    height: 40px;
+
+    margin-top: 28px;
+
+    border: 1px solid #ac5aff;
+
+    border-radius: 25px;
+
+    background: linear-gradient(
+        90deg,
+        #4737ff,
+        #c45aff
+    );
+
+    color: white;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 24px;
+    font-weight: 400;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 10px rgba(71, 55, 255, 0.6);
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.boton-opcion:hover {
+    background: #F75C03;
+    border-color: #F75C03;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   PANTALLAS
+========================================================= */
+
+.pantalla {
+    display: none;
+
+    width: 100%;
+}
+
+.pantalla.activa {
+    display: block;
+}
+
+
+/* =========================================================
+   RESULTADOS
+========================================================= */
+
+.resultado {
+    min-height: 1024px;
+}
+
+
+/* =========================================================
+   TÍTULO DEL RESULTADO
+========================================================= */
+
+.resultado-titulo {
+    font-family: "Anton", sans-serif;
+
+    font-size: 60px;
+    font-weight: 400;
+
+    text-align: center;
+
+    margin-top: 25px;
+}
+
+
+/* =========================================================
+   CONTENIDO DEL RESULTADO
+========================================================= */
+
+.resultado-contenido {
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    margin-top: 55px;
+
+    min-height: 500px;
+}
+
+
+/* =========================================================
+   IMAGEN DEL RESULTADO
+========================================================= */
+
+.resultado-imagen {
+    width: 440px;
+    height: 500px;
+
+    position: relative;
+
+    z-index: 1;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   COLORES
+========================================================= */
+
+.correcto {
+    background: #18852a;
+}
+
+.incorrecto {
+    background: #a90016;
+}
+
+
+/* =========================================================
+   IMAGEN INTERACTIVA
+========================================================= */
+
+.imagen-interactiva {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   INFORMACIÓN DEL DISEÑADOR
+========================================================= */
+
+.info-disenador {
+    position: absolute;
+
+    width: 416px;
+    height: 500px;
+
+    padding: 30px;
+
+    background: white;
+
+    color: #0B0B13;
+
+    border-radius: 12px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-weight: 300;
+
+    font-size: 36px;
+
+    line-height: 1.25;
+
+    box-sizing: border-box;
+
+    z-index: 0;
+
+    left: calc(50% + 30px);
+
+    top: 0;
+
+    transform: translateX(0);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* =========================================================
+   HOVER RESULTADO
+========================================================= */
+
+.resultado-contenido:hover .resultado-imagen {
+    transform: scale(1.02);
+
+    box-shadow:
+        0 0 20px rgba(71, 55, 255, 0.8),
+        0 0 40px rgba(172, 90, 255, 0.5);
+}
+
+.resultado-contenido:hover .info-disenador {
+    transform: translateX(210px);
+
+    box-shadow:
+        0 0 20px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   FLECHAS DESPLEGABLES
+========================================================= */
+
+.flechas-desplegar {
+    position: absolute;
+
+    width: 40px;
+    height: auto;
+
+    left: calc(50% + 450px);
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 2;
+
+    transition:
+        transform 0.4s ease;
+}
+
+.resultado-contenido:hover .flechas-desplegar {
+    transform:
+        translateY(-50%)
+        translateX(210px);
+}
+
+
+/* =========================================================
+   FLECHA PARA ABAJO
+========================================================= */
+
+.flecha-abajo {
+    position: absolute;
+
+    width: 81px;
+    height: 81px;
+
+    right: 70px;
+    bottom: -95px;
+
+    z-index: 5;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease;
+}
+
+.flecha-abajo:hover {
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   RESPONSIVE — 1280 / NOTEBOOKS
+========================================================= */
+
+@media (max-width: 1280px) {
+
+    .trivia-header {
+        padding-left: 60px;
+        padding-right: 70px;
+    }
+
+    .linea {
+        width: calc(100% - 120px);
+        margin-left: 60px;
+    }
+
+    .opciones {
+        gap: 70px;
+    }
+
+    .pregunta {
+        margin-left: 60px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — 1150
+   Mantiene las tarjetas a 370 × 420.
+   Solamente reduce el espacio entre ellas.
+========================================================= */
+
+@media (max-width: 1150px) {
+
+    .trivia-header {
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+
+    .linea {
+        width: calc(100% - 90px);
+        margin-left: 45px;
+    }
+
+    .pregunta {
+        margin-left: 45px;
+    }
+
+    .opciones {
+        gap: 35px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — 1000
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .trivia {
+        min-width: 900px;
+    }
+
+    .pregunta h2 {
+        font-size: 82px;
+    }
+
+    .pregunta p {
+        font-size: 27px;
+    }
+
+    .resultado-titulo {
+        font-size: 55px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — EVITA CORTES HORIZONTALES
+========================================================= */
+
+@media (max-width: 900px) {
+
+    body {
+        overflow-x: auto;
+    }
+
+    .trivia {
+        width: 900px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+/* =========================================================
+   PANTALLA 3 - AJUSTES
+========================================================= */
+
+/* La tarjeta blanca de información */
+#resultado-incorrecto-3 .info-disenador {
+    width: 330px;
+    min-height: 450px;
+
+    padding: 25px;
+
+    font-size: 30px;
+    line-height: 1.25;
+
+    top: 0;
+    left: calc(50% + 30px);
+}
+
+
+/* Al pasar el mouse por la imagen:
+   la imagen hace zoom */
+#resultado-incorrecto-3 .resultado-contenido:hover .resultado-imagen {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 0 20px rgba(71, 55, 255, 0.8),
+        0 0 40px rgba(172, 90, 255, 0.5);
+}
+
+
+/* La información se despliega hacia la derecha */
+#resultado-incorrecto-3 .resultado-contenido:hover .info-disenador {
+    transform: translateX(210px);
+
+    box-shadow:
+        0 0 20px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Las flechas acompañan el movimiento */
+#resultado-incorrecto-3 .resultado-contenido:hover .flechas-desplegar {
+    transform:
+        translateY(-50%)
+        translateX(210px);
+}

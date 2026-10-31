@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trivia </title>
+
+    <!-- TIPOGRAFÍAS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="trivia.css">
+</head>
+
+<body>
+
+    <main class="trivia">
+
+
+        <!-- =====================================================
+             PANTALLA 1 - PREGUNTA
+        ====================================================== -->
+
+        <section id="pregunta-1" class="pantalla activa">
+
+            <header class="trivia-header">
+
+                <h1>Trivia</h1>
+
+                <div class="contador">
+                    1 / 3
+                </div>
+
+            </header>
+
+            <div class="linea"></div>
+
+            <section class="pregunta">
+
+                <h2>¿Cuál fue creada por IA?</h2>
+
+                <p>
+                    Observá las dos imágenes y elegí la opción que creas correcta
+                </p>
+
+            </section>
+
+
+            <section class="opciones">
+
+
+                <!-- OPCIÓN A -->
+
+                <div class="opcion">
+
+                    <div class="tarjeta-imagen">
+
+                        <span class="letra">A</span>
+
+                        <img
+                            src="imagenes/imagen A pantalla1 trivia.png"
+                            alt="Imagen A"
+                        >
+
+                    </div>
+
+                    <button
+                        class="boton-opcion"
+                        onclick="respuestaCorrecta()"
+                    >
+                        A
+                    </button>
+
+                </div>
+
+
+                <!-- OPCIÓN B -->
+
+                <div class="opcion">
+
+                    <div class="tarjeta-imagen">
+
+                        <span class="letra">B</span>
+
+                        <img
+                            src="imagenes/imagen trivia 1b.png"
+                            alt="Imagen B"
+                        >
+
+                    </div>
+
+                    <button
+                        class="boton-opcion"
+                        onclick="respuestaIncorrecta()"
+                    >
+                        B
+                    </button>
+
+                </div>
+
+
+            </section>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PANTALLA 1 - CORRECTO
+        ====================================================== -->
+
+        <section
+            id="resultado-correcto"
+            class="pantalla resultado correcto"
+        >
+
+            <header class="trivia-header">
+
+                <h1>Trivia</h1>
+
+                <div class="contador">
+                    1 / 3
+                </div>
+
+            </header>
+
+            <div class="linea"></div>
+
+            <h2 class="resultado-titulo">
+                CORRECTO!
+            </h2>
+
+
+            <div class="resultado-contenido">
+
+                <div class="tarjeta-imagen resultado-imagen">
+
+                    <span class="letra">A</span>
+
+                    <img
+                        src="imagenes/imagen A pantalla1 trivia.png"
+                        alt="Respuesta correcta"
+                    >
+
+                </div>
+
+
+                <!-- FLECHA PARA PASAR A LA PREGUNTA 2 -->
+
+                <img
+                    src="imagenes/flecha para abajo.png"
+                    class="flecha-abajo"
+                    alt="Continuar"
+                    onclick="irPregunta2()"
+                >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PANTALLA 1 - INCORRECTO
+        ====================================================== -->
+
+        <section
+            id="resultado-incorrecto"
+            class="pantalla resultado incorrecto"
+        >
+
+            <header class="trivia-header">
+
+                <h1>Trivia</h1>
+
+                <div class="contador">
+                    1 / 3
+                </div>
+
+            </header>
+
+            <div class="linea"></div>
+
+            <h2 class="resultado-titulo">
+                INCORRECTO!
+            </h2>
+
+
+            <div class="resultado-contenido">
+
+
+                <!-- IMAGEN INCORRECTA -->
+
+                <div
+                    class="tarjeta-imagen resultado-imagen imagen-interactiva"
+                >
+
+                    <span class="letra">B</span>
+
+                    <img
+                        src="imagenes/imagen trivia 1b.png"
+                        alt="Respuesta incorrecta"
+                    >
+
+                </div>
+
+
+                <!-- INFORMACIÓN DEL DISEÑADOR -->
+
+                <div
+                    id="info-disenador"
+                    class="info-disenador"
+                >
+
+                    <p>
+                        Este diseño fue creado por
+                        un ilustrador digital independiente 
+                        que firma bajo el pseudónimo de Resa
+                        putra pamungkas, especializado en gráficos vectoriales 
+                    </p>
+
+                </div>
+
+
+                <!-- FLECHAS DECORATIVAS -->
+
+                <img
+                    src="imagenes/flechas que despliegan icono.png"
+                    class="flechas-desplegar"
+                    alt=""
+                >
+
+
+                <!-- FLECHA PARA PASAR A LA PREGUNTA 2 -->
+
+                <img
+                    src="imagenes/flecha para abajo.png"
+                    class="flecha-abajo"
+                    alt="Continuar"
+                    onclick="irPregunta2()"
+                >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PANTALLA 2 - PREGUNTA
+        ====================================================== -->
+
+        <section
+            id="pregunta-2"
+            class="pantalla"
+        >
+
+            <header class="trivia-header">
+
+                <h1>Trivia</h1>
+
+                <div class="contador">
+                    2 / 3
+                </div>
+
+            </header>
+
+            <div class="linea"></div>
+
+
+            <section class="pregunta">
+
+                <h2>¿Cuál fue creada por IA?</h2>
+
+                <p>
+                    Observá las dos imágenes y elegí la opción que creas correcta
+                </p>
+
+            </section>
+
+
+            <section class="opciones">
+
+
+                <!-- OPCIÓN A -->
+
+                <div class="opcion">
+
+                    <div class="tarjeta-imagen">
+
+                        <span class="letra">A</span>
+
+                        <img
+                            src="imagenes/imagen A pantalla2 trivia.png"
+                            alt="Imagen A"
+                        >
+
+                    </div>
+
+                    <button
+                        class="boton-opcion"
+                        onclick="respuestaCorrecta2()"
+                    >
+                        A
+                    </button>
+
+                </div>
+
+
+                <!-- OPCIÓN B -->
+
+                <div class="opcion">
+
+                    <div class="tarjeta-imagen">
+
+                        <span class="letra">B</span>
+
+                        <img
+                            src="imagenes/imagen B pantalla2 trivia.png"
+                            alt="Imagen B"
+                        >
+
+                    </div>
+
+                    <button
+                        class="boton-opcion"
+                        onclick="respuestaIncorrecta2()"
+                    >
+                        B
+                    </button>
+
+                </div>
+
+
+            </section>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PANTALLA 2 - CORRECTO
+        ====================================================== -->
+
+        <section
+            id="resultado-correcto-2"
+            class="pantalla resultado correcto"
+        >
+
+            <header class="trivia-header">
+
+                <h1>Trivia</h1>
+
+                <div class="contador">
+                    2 / 3
+                </div>
+
+            </header>
+
+            <div class="linea"></div>
+
+            <h2 class="resultado-titulo">
+                CORRECTO!
+            </h2>
+
+
+            <div class="resultado-contenido">
+
+
+                <!-- IMAGEN CORRECTA -->
+
+                <div class="tarjeta-imagen resultado-imagen">
+
+                    <span class="letra">A</span>
+
+                    <img
+                        src="imagenes/imagen A pantalla2 trivia.png"
+                        alt="Respuesta correcta"
+                    >
+
+                </div>
+
+
+                <!-- FLECHA PARA PASAR A LA PREGUNTA 3 -->
+
+                <img
+                    src="imagenes/flecha para abajo.png"
+                    class="flecha-abajo"
+                    alt="Continuar"
+                    onclick="irPregunta3()"
+                >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PANTALLA 2 - INCORRECTO
+        ====================================================== -->
+
+        <section
+            id="resultado-incorrecto-2"
+            class="pantalla resultado incorrecto"
+        >
+
+            <header class="trivia-header">
+
+                <h1>Trivia</h1>
+
+                <div class="contador">
+                    2 / 3
+                </div>
+
+            </header>
+
+            <div class="linea"></div>
+
+            <h2 class="resultado-titulo">
+                INCORRECTO!
+            </h2>
+
+
+            <div class="resultado-contenido">
+
+
+                <!-- IMAGEN INCORRECTA -->
+
+                <div
+                    class="tarjeta-imagen resultado-imagen imagen-interactiva"
+                >
+
+                    <span class="letra">B</span>
+
+                    <img
+                        src="imagenes/imagen B pantalla2 trivia.png"
+                        alt="Respuesta incorrecta"
+                    >
+
+                </div>
+
+
+                <!-- INFORMACIÓN -->
+
+                <div
+                    id="info-disenador-2"
+                    class="info-disenador"
+                >
+
+                    <p>
+                        El cartel y el nombre de Churros
+                        El Topo fueron creados en 1968
+                        por un letrista anónimo de
+                        Villa Gesell, inspirado en Topo Gigio.
+                    </p>
+
+                </div>
+
+
+                <!-- FLECHAS DECORATIVAS -->
+
+                <img
+                    src="imagenes/flechas que despliegan icono.png"
+                    class="flechas-desplegar"
+                    alt=""
+                >
+
+
+                <!-- FLECHA PARA PASAR A LA PREGUNTA 3 -->
+
+                <img
+                    src="imagenes/flecha para abajo.png"
+                    class="flecha-abajo"
+                    alt="Continuar"
+                    onclick="irPregunta3()"
+                >
+
+            </div>
+
+        </section>
+       <!-- =====================================================
+     PANTALLA 3 - PREGUNTA
+====================================================== -->
+
+<section
+    id="pregunta-3"
+    class="pantalla"
+>
+
+    <header class="trivia-header">
+
+        <h1>Trivia</h1>
+
+        <div class="contador">
+            3 / 3
+        </div>
+
+    </header>
+
+    <div class="linea"></div>
+
+
+    <section class="pregunta">
+
+        <h2>¿Cuál fue creada por IA?</h2>
+
+        <p>
+            Observá las dos imágenes y elegí la opción que creas correcta
+        </p>
+
+    </section>
+
+
+    <section class="opciones">
+
+        <!-- =========================
+             OPCIÓN A
+        ========================== -->
+
+        <div class="opcion">
+
+            <div class="tarjeta-imagen">
+
+                <span class="letra">A</span>
+
+                <img
+                    src="imagenes/imagen A pantalla3 trivia.png"
+                    alt="Imagen A"
+                >
+
+            </div>
+
+            <button
+                class="boton-opcion"
+                onclick="respuestaIncorrecta3()"
+            >
+                A
+            </button>
+
+        </div>
+
+
+        <!-- =========================
+             OPCIÓN B
+        ========================== -->
+
+        <div class="opcion">
+
+            <div class="tarjeta-imagen">
+
+                <span class="letra">B</span>
+
+                <img
+                    src="imagenes/imagen B pantalla3 trivia.png"
+                    alt="Imagen B"
+                >
+
+            </div>
+
+            <button
+                class="boton-opcion"
+                onclick="respuestaCorrecta3()"
+            >
+                B
+            </button>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- =====================================================
+     PANTALLA 3 - CORRECTO
+====================================================== -->
+
+<section
+    id="resultado-correcto-3"
+    class="pantalla resultado correcto"
+>
+
+    <header class="trivia-header">
+
+        <h1>Trivia</h1>
+
+        <div class="contador">
+            3 / 3
+        </div>
+
+    </header>
+
+    <div class="linea"></div>
+
+    <h2 class="resultado-titulo">
+        CORRECTO!
+    </h2>
+
+
+    <div class="resultado-contenido">
+
+        <!-- IMAGEN CORRECTA -->
+
+        <div class="tarjeta-imagen resultado-imagen">
+
+            <span class="letra">B</span>
+
+            <img
+                src="imagenes/imagen B pantalla3 trivia.png"
+                alt="Respuesta correcta"
+            >
+
+        </div>
+
+
+        <!-- FLECHA FINAL -->
+
+        <img
+            src="imagenes/flecha para abajo.png"
+            class="flecha-abajo"
+            alt="Finalizar"
+            onclick="irConclusion()"
+        >
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PANTALLA 3 - INCORRECTO
+====================================================== -->
+
+<section
+    id="resultado-incorrecto-3"
+    class="pantalla resultado incorrecto"
+>
+
+    <header class="trivia-header">
+
+        <h1>Trivia</h1>
+
+        <div class="contador">
+            3 / 3
+        </div>
+
+    </header>
+
+    <div class="linea"></div>
+
+    <h2 class="resultado-titulo">
+        INCORRECTO!
+    </h2>
+
+
+    <div class="resultado-contenido">
+
+        <!-- =========================
+             IMAGEN INCORRECTA
+        ========================== -->
+
+        <div
+            class="tarjeta-imagen resultado-imagen imagen-interactiva"
+        >
+
+            <span class="letra">A</span>
+
+            <img
+                src="imagenes/imagen A pantalla3 trivia.png"
+                alt="Respuesta incorrecta"
+            >
+
+        </div>
+
+
+        <!-- =========================
+             INFORMACIÓN
+        ========================== -->
+
+        <div
+            id="info-disenador-3"
+            class="info-disenador"
+        >
+
+            <p>
+                Creado por Basim Bashir como propuesta base
+                de logotipo y grilla tipográfica.
+                Posteriormente, la diseñadora Eman Fatima
+                expandió el concepto desarrollando el sistema
+                completo de empaques.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             FLECHAS DECORATIVAS
+        ========================== -->
+
+        <img
+            src="imagenes/flechas que despliegan icono.png"
+            class="flechas-desplegar"
+            alt=""
+        >
+
+
+        <!-- =========================
+             FLECHA FINAL
+        ========================== -->
+
+        <img
+            src="imagenes/flecha para abajo.png"
+            class="flecha-abajo"
+            alt="Finalizar"
+            onclick="irConclusion()"
+        >
+
+    </div>
+
+</section>
+
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="trivia.js"></script>
+
+</body>
+
+</html>

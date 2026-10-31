@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Línea del tiempo - Imágenes con IA</title>
+
+
+    <!-- TIPOGRAFÍAS -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- CSS -->
+
+    <link
+        rel="stylesheet"
+        href="timeline.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<main class="timeline">
+
+
+    <!-- =====================================================
+         MENÚ SUPERIOR
+    ====================================================== -->
+
+    <div class="menu-superior">
+
+
+        <!-- HERRAMIENTA -->
+
+        <button
+            class="menu-icono herramienta-button"
+            aria-label="Más información"
+            onclick="irNucleo()"
+        >
+
+            <img
+                src="imagenes/herramienta.png"
+                alt="Más información"
+            >
+
+        </button>
+
+
+        <!-- HOME -->
+
+        <button
+            class="menu-icono home-button"
+            aria-label="Inicio"
+        >
+
+            <img
+                src="imagenes/home icono.png"
+                alt="Inicio"
+            >
+
+        </button>
+
+
+        <!-- RELOJ DE ARENA -->
+
+        <button
+            class="menu-icono reloj-button"
+            aria-label="Línea del tiempo"
+            id="reloj-button"
+        >
+
+            <img
+                src="imagenes/icono reloj de arena.png"
+                alt="Línea del tiempo"
+            >
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CARTEL DEL RELOJ
+    ====================================================== -->
+
+    <div
+        class="cartel-reloj"
+        id="cartel-reloj"
+    >
+
+        <p>
+
+            Estás dentro de<br>
+
+            <strong>
+                este espacio.
+            </strong>
+
+        </p>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         TÍTULO PRINCIPAL
+    ====================================================== -->
+
+    <h1 class="titulo-principal">
+
+        CÓMO EVOLUCIONARON LAS IMÁGENES CON IA
+
+    </h1>
+
+
+
+    <!-- =====================================================
+         LÍNEA DIVISORA
+    ====================================================== -->
+
+    <div class="linea-principal"></div>
+
+
+
+    <!-- =====================================================
+         CONTENIDO DE LA TIMELINE
+    ====================================================== -->
+
+    <section class="contenido-anio">
+
+
+        <!-- =================================================
+             TEXTO
+        ================================================== -->
+
+        <div class="texto-anio">
+
+
+            <!-- AÑO -->
+
+            <h2
+                class="anio"
+                id="anio"
+            >
+
+                AÑO - 2014
+
+            </h2>
+
+
+            <!-- TÍTULO DEL AÑO -->
+
+            <h3
+                class="titulo-anio"
+                id="titulo-anio"
+            >
+
+                LA IA APRENDE A CREAR
+
+            </h3>
+
+
+            <!-- ÍCONO DE LA PANTALLA -->
+
+            <img
+                class="icono-anio"
+                id="icono-anio"
+                src="imagenes/icono pantalla 1.png"
+                alt=""
+            >
+
+
+            <!-- LÍNEA -->
+
+            <div class="linea-secundaria"></div>
+
+
+            <!-- INFORMACIÓN -->
+
+            <div
+                class="informacion"
+                id="informacion"
+            >
+
+                <p>
+
+                    <span class="viñeta">
+                        •
+                    </span>
+
+                    <span>
+                        <strong>2014:</strong>
+                        aparecen las
+                        <strong>GANs.</strong>
+                    </span>
+
+                </p>
+
+
+                <p>
+
+                    <span class="viñeta">
+                        •
+                    </span>
+
+                    <span>
+                        Sistema capaz de
+                        <strong>generar</strong>
+                        imágenes.
+                    </span>
+
+                </p>
+
+
+                <p>
+
+                    <span class="viñeta">
+                        •
+                    </span>
+
+                    <span>
+                        Dos redes compiten:
+                        una genera y otra
+                        <strong>detecta.</strong>
+                    </span>
+
+                </p>
+
+
+                <p>
+
+                    <span class="viñeta">
+                        •
+                    </span>
+
+                    <span>
+                        El resultado:
+                        <strong>
+                            imágenes cada vez más realistas.
+                        </strong>
+                    </span>
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             COMPOSICIÓN DE IMÁGENES
+        ================================================== -->
+
+        <div class="imagen-contenedor">
+
+
+            <!-- CUADRADO DE ATRÁS -->
+
+            <div class="imagen-fondo-1"></div>
+
+
+            <!-- CUADRADO DEL MEDIO -->
+
+            <div class="imagen-fondo-2"></div>
+
+
+            <!-- IMAGEN 2014 -->
+
+            <img
+                class="imagen-timeline imagen-activa"
+                data-index="0"
+                src="imagenes/imagen 2014.png"
+                alt=""
+            >
+
+
+            <!-- IMAGEN 2016 -->
+
+            <img
+                class="imagen-timeline"
+                data-index="1"
+                src="imagenes/imagen 2016.png"
+                alt=""
+            >
+
+
+            <!-- IMAGEN 2018 -->
+
+            <img
+                class="imagen-timeline"
+                data-index="2"
+                src="imagenes/imagen 2018.png"
+                alt=""
+            >
+
+
+            <!-- IMAGEN 2021 -->
+
+            <img
+                class="imagen-timeline"
+                data-index="3"
+                src="imagenes/imagen 2021.png"
+                alt=""
+            >
+
+
+            <!-- IMAGEN 2022 -->
+
+            <img
+                class="imagen-timeline"
+                data-index="4"
+                src="imagenes/imagen 2022.png"
+                alt=""
+            >
+
+
+            <!-- IMAGEN 2023 -->
+
+            <img
+                class="imagen-timeline"
+                data-index="5"
+                src="imagenes/imagen 2023.png"
+                alt=""
+            >
+
+
+            <!-- IMAGEN 2024 -->
+
+            <img
+                class="imagen-timeline"
+                data-index="6"
+                src="imagenes/imagen 2024.png"
+                alt=""
+            >
+
+
+            <!-- IMAGEN 2025-2026 -->
+
+            <img
+                class="imagen-timeline"
+                data-index="7"
+                src="imagenes/imagen 2025-2026.png"
+                alt=""
+            >
+
+
+            <!-- ILUMINACIÓN -->
+
+            <div class="iluminacion-imagen"></div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             TEXTO DEBAJO DE LA IMAGEN
+        ================================================== -->
+
+        <p
+            class="texto-imagen"
+            id="texto-imagen"
+        >
+
+            GANs: rostros generados durante el entrenamiento.
+
+        </p>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         DECORACIÓN IZQUIERDA
+    ====================================================== -->
+
+    <img
+        class="deco-izquierda"
+        src="imagenes/Deco de la izquierda.png"
+        alt=""
+    >
+
+
+
+    <!-- =====================================================
+         SLIDER
+    ====================================================== -->
+
+    <div class="slider">
+
+
+        <div class="slider-barra"></div>
+
+
+        <div
+            class="slider-circulo"
+            id="slider-circulo"
+        ></div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         TUTORIAL DEL SLIDER
+    ====================================================== -->
+
+    <img
+        class="dedo-icono"
+        src="imagenes/dedo icono.png"
+        alt=""
+    >
+
+
+    <div class="flecha-indicacion">
+
+        <div class="flecha-linea"></div>
+
+        <div class="flecha-punta"></div>
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     MODAL PARA AGRANDAR IMAGEN
+====================================================== -->
+
+<div
+    class="modal-imagen"
+    id="modal-imagen"
+>
+
+
+    <div class="modal-contenido">
+
+
+        <img
+            id="imagen-ampliada"
+            src=""
+            alt="Imagen ampliada"
+        >
+
+
+        <button
+            class="cerrar-imagen"
+            id="cerrar-imagen"
+            aria-label="Cerrar"
+        >
+
+            ×
+
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script src="timeline.js"></script>
+
+
+</body>
+
+</html>

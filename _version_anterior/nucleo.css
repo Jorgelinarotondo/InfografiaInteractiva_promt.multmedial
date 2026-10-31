@@ -1,0 +1,932 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+    background: #0B0B13;
+
+    color: #FFFFFF;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    font-family: "Montserrat", sans-serif;
+}
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   REFERENCIA: 1440 × 1024
+========================================================= */
+
+.nucleo {
+
+    position: relative;
+
+    width: 100%;
+    max-width: 1440px;
+
+    min-height: 1024px;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 53% 42%,
+            rgba(58, 61, 130, .18),
+            transparent 42%
+        ),
+        #0B0B13;
+}
+
+
+/* =========================================================
+   BRILLO DE FONDO
+========================================================= */
+
+.brillo-fondo {
+
+    position: absolute;
+
+    left: 180px;
+    top: 130px;
+
+    width: 950px;
+    height: 700px;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(71, 55, 255, .07),
+            transparent 65%
+        );
+
+    filter: blur(40px);
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   ELEMENTOS PRINCIPALES
+========================================================= */
+
+.nucleo > * {
+    position: absolute;
+}
+
+
+/* =========================================================
+   MENÚ SUPERIOR
+========================================================= */
+
+.menu-superior {
+
+    position: absolute;
+
+    top: 0;
+
+    left: auto;
+    right: 74px;
+
+    width: 225px;
+    height: 58px;
+
+    background: #635396;
+
+    border-radius: 0 0 10px 10px;
+
+    z-index: 100;
+
+    display: flex;
+
+}
+
+/* =========================================================
+   BOTONES DEL MENÚ
+========================================================= */
+.menu-icono {
+
+    position: absolute;
+
+    top: 0;
+
+    border: none;
+
+    padding: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* =========================================
+   HERRAMIENTA
+========================================= */
+
+.herramienta-button {
+
+    left: 35px;
+
+    width: 35px;
+    height: 58px;
+
+}
+
+
+.herramienta-button img {
+
+    width: 38px;
+    height: 36px;
+
+    object-fit: contain;
+
+    transform: rotate(15deg);
+    transform-origin: center center;
+
+}
+
+
+/* =========================================
+   HOME
+========================================= */
+
+.home-button {
+
+    left: 91px;
+
+    width: 38px;
+    height: 58px;
+
+}
+
+
+.home-button img {
+
+    width: 37px;
+    height: 35px;
+
+    object-fit: contain;
+
+}
+
+
+/* =========================================
+   RELOJ
+========================================= */
+
+.reloj-button {
+
+    left: 158px;
+
+    width: 30px;
+    height: 58px;
+
+}
+
+
+.reloj-button img {
+
+    width: 25px;
+    height: 36px;
+
+    object-fit: contain;
+
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.titulo-seccion {
+
+    left: 93px;
+    top: 55px;
+
+    width: 650px;
+
+    font-family: "Anton", sans-serif;
+
+    font-size: 125px;
+
+    line-height: 1;
+
+    font-weight: 400;
+
+    letter-spacing: -0.015em;
+
+    color: #F5F3FF;
+
+    z-index: 20;
+
+    transition:
+        opacity 250ms ease,
+        transform 250ms ease;
+}
+
+
+/* =========================================================
+   CONCEPTO DE LA SECCIÓN
+   APARECE AL LADO DEL TÍTULO
+========================================================= */
+.concepto-seccion {
+    position: absolute;
+
+    top: 88px;
+    left: 580px;
+
+    width: 560px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    z-index: 20;
+}
+
+/* =====================================================
+   POSICIÓN DEL CONCEPTO SEGÚN EL TÍTULO
+===================================================== */
+
+/* LÍMITES */
+.nucleo.seccion-limites .concepto-seccion {
+    left: 470px;
+}
+
+
+/* EDITAR */
+.nucleo.seccion-editar .concepto-seccion {
+    left: 520px;
+}
+
+
+/* GENERAR */
+.nucleo.seccion-generar .concepto-seccion {
+    left: 550px;
+}
+
+
+/* INSPIRACIÓN */
+.nucleo.seccion-inspiracion .concepto-seccion {
+    left: 700px;
+}
+/* =========================================================
+   ICONO DEL CONCEPTO
+========================================================= */
+
+.icono-frase {
+    width: 82px;
+    height: 82px;
+
+    flex-shrink: 0;
+
+    object-fit: contain;
+
+    transition:
+        opacity 250ms ease,
+        transform 250ms ease;
+}
+
+/* =========================================================
+   FRASE
+========================================================= */
+.frase {
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 25px;
+    line-height: 1.12;
+
+    font-weight: 500;
+
+    letter-spacing: 0;
+
+    color: #FFFFFF;
+
+    white-space: nowrap;
+
+    transition:
+        opacity 250ms ease,
+        transform 250ms ease;
+}
+
+.frase span {
+
+    color: #E477CF;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   RUEDA / TUERCA
+========================================================= */
+
+.rueda {
+    left: -158px;
+    top: 500px;
+
+    width: 520px;
+    height: 525px;
+
+    z-index: 14;
+
+    pointer-events: none;
+
+    transform-origin: center center;
+}
+
+.rueda img {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+/* =========================================================
+   CARD PRINCIPAL
+========================================================= */
+
+.card-principal {
+    left: 490px;
+    top:285px;
+
+    width: 760px;
+    height: 520px;
+
+    z-index: 8;
+
+    pointer-events: none;
+}
+
+/* =========================================================
+   PREVIEW DE LA SIGUIENTE IMAGEN
+========================================================= */
+
+.imagen-preview-contenedor {
+    position: absolute;
+
+    left: 410px;
+    top: 38px;
+
+    width: 300px;
+    height: 420px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    z-index: 3;
+
+    background: #202030;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, .20);
+
+    opacity: 1;
+
+    transition:
+        opacity 250ms ease,
+        transform 300ms ease;
+}
+
+
+/* IMAGEN DE PREVIEW */
+
+.imagen-preview {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+/* =========================================================
+   IMAGEN PRINCIPAL POR ENCIMA DE LA PREVIEW
+========================================================= */
+/* ==================================================
+   CONTENEDOR DE LA IMAGEN
+================================================== */
+
+.imagen-card-contenedor {
+    position: relative;
+
+    width: 595px;
+    height: 600px;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+}
+
+
+/* ==================================================
+   IMAGEN
+================================================== */
+
+.imagen-card {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* ==================================================
+   DEGRADADO OSCURO PARA EL TEXTO
+================================================== */
+
+.imagen-card-contenedor::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 48%;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(11, 11, 19, 0) 0%,
+        rgba(11, 11, 19, 0.20) 20%,
+        rgba(11, 11, 19, 0.70) 65%,
+        rgba(11, 11, 19, 0.95) 100%
+    );
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+/* =========================================================
+   CUADRADO DE ATRÁS
+========================================================= */
+
+.imagen-fondo-1 {
+
+    position: absolute;
+
+    left: 568px;
+    top: -15px;
+
+    width: 368px;
+    height: 368px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4737FF 0%,
+            #359BFF 50%,
+            #ACA5FF 100%
+        );
+
+    opacity: .28;
+
+    border: 1px solid
+        rgba(209, 205, 255, .65);
+
+    transform: rotate(15deg);
+
+    transform-origin: center center;
+
+    z-index: 1;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, .15);
+}
+
+
+/* =========================================================
+   CUADRADO DEL MEDIO
+========================================================= */
+
+.imagen-fondo-2 {
+
+    position: absolute;
+
+    left: 555px;
+    top: 15px;
+
+    width: 368px;
+    height: 368px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4737FF 0%,
+            #359BFF 50%,
+            #ACA5FF 100%
+        );
+
+    opacity: .30;
+
+    border: 1px solid
+        rgba(209, 205, 255, .65);
+
+    transform: rotate(-8deg);
+
+    transform-origin: center center;
+
+    z-index: 2;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, .15);
+}
+
+
+/* =========================================================
+   CONTENEDOR DE IMAGEN
+========================================================= */
+
+.imagen-card-contenedor {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 500px;
+    height: 520px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #202030;
+
+    z-index: 5;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, .22);
+
+    transition:
+        opacity 300ms ease,
+        transform 350ms cubic-bezier(.22, 1, .36, 1);
+}
+
+/* =========================================================
+   IMAGEN
+========================================================= */
+
+.imagen-card {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+
+    transition:
+        opacity 300ms ease,
+        transform 400ms cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* =========================================================
+   DEGRADADO SOBRE LA PARTE INFERIOR
+========================================================= */
+
+/* =========================================================
+   CAPA OSCURA PARA LEER EL TEXTO
+========================================================= */
+
+/* ==================================================
+   TEXTO SOBRE LA IMAGEN
+================================================== */
+
+.texto-sobre-imagen {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 3;
+
+    padding: 0 28px 25px 28px;
+
+    box-sizing: border-box;
+}
+/* =========================================================
+   TEXTO SOBRE LA IMAGEN
+========================================================= */
+
+.texto-card {
+    margin: 0;
+
+    color: #FFFFFF;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 24px;
+    font-weight: 500;
+
+    line-height: 1.15;
+
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
+}
+/* =========================================================
+   INDICADORES PEQUEÑOS
+========================================================= */
+
+.indicadores-card {
+    display: flex;
+
+    gap: 5px;
+
+    margin-top: 10px;
+}
+
+.indicadores-card span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #FFFFFF;
+
+    opacity: 0.8;
+}
+
+
+/* =========================================================
+   FLECHA DE CARD
+========================================================= */
+
+.flecha-card {
+
+    left: 1325px;
+    top: 473px;
+
+    width: 65px;
+    height: 105px;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    z-index: 35;
+}
+
+
+/* =========================================================
+   CHEVRONS
+========================================================= */
+
+.chevron {
+
+    position: absolute;
+
+    width: 30px;
+    height: 30px;
+
+    border-top:
+        4px solid
+        #E477CF;
+
+    border-right:
+        4px solid
+        #E477CF;
+
+    transform: rotate(45deg);
+
+    transition:
+        transform 180ms ease;
+}
+
+
+.chevron-1 {
+
+    left: 4px;
+    top: 10px;
+}
+
+
+.chevron-2 {
+
+    left: 21px;
+    top: 10px;
+}
+
+
+.flecha-card:hover .chevron-1 {
+
+    transform:
+        translateX(4px)
+        rotate(45deg);
+}
+
+
+.flecha-card:hover .chevron-2 {
+
+    transform:
+        translateX(4px)
+        rotate(45deg);
+}
+
+
+/* =========================================================
+   PUNTITOS
+========================================================= */
+
+.puntos-flecha {
+
+    position: absolute;
+
+    left: 7px;
+    top: 61px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    max-width: 55px;
+
+    flex-wrap: wrap;
+}
+
+
+.punto-flecha {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, .35);
+
+    display: block;
+
+    transition:
+        background 180ms ease,
+        transform 180ms ease;
+}
+
+
+.punto-activo {
+
+    background: #E477CF;
+
+    transform: scale(1.25);
+}
+
+
+/* =========================================================
+   BOTÓN PARA CAMBIAR DE SECCIÓN
+========================================================= */
+
+.flecha-rueda {
+
+    left: 337px;
+    top: 918px;
+
+    width: 70px;
+    height: 70px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    z-index: 35;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        transform 180ms ease;
+}
+
+
+.flecha-rueda img {
+
+    width: 73px;
+    height: 73px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+.flecha-rueda:hover {
+
+    transform: scale(1.06);
+}
+
+
+/* =========================================================
+   ANIMACIÓN DE CAMBIO
+========================================================= */
+
+.cambiando {
+
+    opacity: 0;
+
+    transform:
+        translateY(8px);
+}
+
+
+/* =========================================================
+   ESTADO DE CAMBIO DE CARD
+========================================================= */
+
+.card-saliendo {
+
+    opacity: 0;
+
+    transform:
+        translateX(18px);
+}
+
+/* =========================================
+   OCULTAR FORMAS DEL DISEÑO ANTERIOR
+========================================= */
+
+.imagen-fondo-1,
+.imagen-fondo-2 {
+    display: none;
+}
+
+/* =========================================================
+   ESCALA RESPONSIVE
+========================================================= */
+
+@media (max-width: 1440px) {
+    .nucleo {
+        width: 1440px;
+        height: 1024px;
+        min-height: 1024px;
+        transform-origin: top left;
+    }
+}

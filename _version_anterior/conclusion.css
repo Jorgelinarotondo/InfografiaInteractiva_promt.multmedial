@@ -1,0 +1,798 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+
+    background: #0B0B13;
+
+    color: white;
+
+    font-family: "Montserrat", sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   CONTENEDOR PRINCIPAL
+========================================= */
+
+.conclusion {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 1024px;
+
+    background: #0B0B13;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================
+   MENÚ SUPERIOR
+========================================= */
+
+.menu-superior {
+
+    position: absolute;
+
+    top: 0;
+
+    left: auto;
+    right: 74px;
+
+    width: 225px;
+    height: 58px;
+
+    background: #635396;
+
+    border-radius: 0 0 10px 10px;
+
+    z-index: 100;
+
+    display: flex;
+
+}
+
+
+/* =========================================
+   BOTONES DEL MENÚ
+========================================= */
+
+.menu-icono {
+
+    position: absolute;
+
+    top: 0;
+
+    border: none;
+
+    padding: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* =========================================
+   HERRAMIENTA
+========================================= */
+
+.herramienta-button {
+
+    left: 35px;
+
+    width: 35px;
+    height: 58px;
+
+}
+
+
+.herramienta-button img {
+
+    width: 32px;
+    height: 36px;
+
+    object-fit: contain;
+
+}
+
+
+/* =========================================
+   HOME
+========================================= */
+
+.home-button {
+
+    left: 91px;
+
+    width: 38px;
+    height: 58px;
+
+}
+
+
+.home-button img {
+
+    width: 37px;
+    height: 35px;
+
+    object-fit: contain;
+
+}
+
+
+/* =========================================
+   RELOJ
+========================================= */
+
+.reloj-button {
+
+    left: 158px;
+
+    width: 30px;
+    height: 58px;
+
+}
+
+
+.reloj-button img {
+
+    width: 25px;
+    height: 36px;
+
+    object-fit: contain;
+
+}
+
+
+/* =========================================
+   TÍTULO
+========================================= */
+
+.titulo-conclusion {
+
+    position: absolute;
+
+    left: 60px;
+    top: 55px;
+
+    margin: 0;
+
+    font-family: "Anton", sans-serif;
+
+    font-size: 76px;
+
+    line-height: 1;
+
+    font-weight: 400;
+
+    color: #F7F4FF;
+
+    letter-spacing: -1px;
+
+}
+
+
+/* =========================================
+   INDICACIÓN DE INTERACCIÓN
+========================================= */
+
+.indicacion-hover {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 165px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    color: rgba(247, 244, 255, 0.82);
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    line-height: 1.25;
+
+    letter-spacing: 0.03em;
+
+    text-align: left;
+
+    white-space: nowrap;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+}
+
+
+/* =========================================
+   TEXTO DE LA INDICACIÓN
+========================================= */
+
+.indicacion-hover span {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.indicacion-hover strong {
+
+    color: #E875C9;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================
+   ÍCONO DE MOUSE
+========================================= */
+
+.icono-mouse {
+
+    width: 28px;
+
+    height: 35px;
+
+    flex-shrink: 0;
+
+    animation:
+        mouse-movimiento 1.6s ease-in-out infinite;
+
+}
+
+
+/* =========================================
+   ANIMACIÓN DEL MOUSE
+========================================= */
+
+@keyframes mouse-movimiento {
+
+    0%,
+    100% {
+
+        transform: translateX(0);
+
+    }
+
+    50% {
+
+        transform: translateX(6px);
+
+    }
+
+}
+
+
+/* =========================================
+   CONTENEDOR DE TARJETAS
+========================================= */
+
+.tarjetas {
+
+    position: absolute;
+
+    left: 60px;
+    top: 265px;
+
+    width: calc(100% - 120px);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 70px;
+
+}
+
+
+/* =========================================
+   BLOQUE
+========================================= */
+
+.bloque {
+
+    position: relative;
+
+    width: 300px;
+
+    height: 325px;
+
+    flex-shrink: 0;
+
+    z-index: 1;
+
+}
+
+
+/* =========================================
+   TARJETA PRINCIPAL
+========================================= */
+
+.cuadrado-icono {
+
+    position: relative;
+
+    width: 300px;
+
+    height: 325px;
+
+    padding: 20px;
+
+    border: 2px solid #D96BEA;
+
+    border-radius: 20px;
+
+    background: #352E55;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    cursor: pointer;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+    z-index: 5;
+
+}
+
+
+/* =========================================
+   FONDO DEL ÍCONO
+========================================= */
+
+.fondo-icono {
+
+    width: 252px;
+
+    height: 185px;
+
+    margin-top: 0;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            110deg,
+            #3430FF,
+            #C65DE6
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* =========================================
+   ÍCONOS
+========================================= */
+
+.fondo-icono img {
+
+    width: 135px;
+
+    height: 135px;
+
+    object-fit: contain;
+
+    display: block;
+
+}
+
+
+/* =========================================
+   TÍTULO DE CADA TARJETA
+========================================= */
+
+.cuadrado-icono h2 {
+
+    margin: 25px 0 0 0;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 31px;
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    color: white;
+
+    text-align: center;
+
+}
+
+
+/* =========================================
+   PUNTO ROSA
+========================================= */
+
+.punto {
+
+    width: 17px;
+
+    height: 17px;
+
+    margin-top: 22px;
+
+    border-radius: 50%;
+
+    background: #E875C9;
+
+}
+
+
+/* =========================================
+   EFECTO HOVER DE TARJETA
+========================================= */
+
+.bloque:hover {
+
+    z-index: 50;
+
+}
+
+
+.bloque:hover .cuadrado-icono {
+
+    box-shadow:
+        0 0 25px rgba(207, 83, 235, 0.35);
+
+}
+
+
+/* =========================================
+   DESPLEGABLE
+========================================= */
+
+.desplegable {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 1040px;
+    height: 650px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    z-index: 20;
+
+}
+
+
+/* =========================================
+   MOSTRAR DESPLEGABLE
+========================================= */
+
+.bloque:hover .desplegable {
+
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+/* =========================================
+   IMAGEN
+========================================= */
+
+.imagen-desplegable {
+
+    position: absolute;
+
+    top: 0;
+    left: 335px;
+
+    width: 650px;
+    height: 315px;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background: #151522;
+
+}
+
+
+.imagen-desplegable img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+
+/* =========================================
+   INFORMACIÓN
+========================================= */
+
+.contenido-texto {
+
+    position: absolute;
+
+    left: 0;
+    top: 365px;
+
+    width: 1040px;
+    min-height: 245px;
+
+    padding: 35px 50px;
+
+    border-radius: 20px;
+
+    border: 2px solid #E477CF;
+
+    background: #635396;
+
+    color: white;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 24px;
+
+    line-height: 1.25;
+
+}
+
+
+/* =========================================
+   LISTA
+========================================= */
+
+.contenido-texto ul {
+
+    margin: 0;
+
+    padding-left: 28px;
+
+}
+
+
+.contenido-texto li {
+
+    margin-bottom: 25px;
+
+}
+
+
+.contenido-texto li:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+.contenido-texto strong {
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================
+   OCULTAR LAS OTRAS TARJETAS
+========================================= */
+
+.tarjetas:has(.bloque:hover) .bloque:not(:hover) {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================
+   TARJETA ACTIVA
+========================================= */
+
+.tarjetas .bloque:hover {
+
+    z-index: 100;
+
+}
+
+
+/* =========================================
+   QUITAR ANIMACIÓN ANTERIOR
+========================================= */
+
+.bloque:hover .desplegable {
+
+    animation: none;
+
+}
+
+
+/* =========================================
+   VELOCIDAD
+========================================= */
+
+.bloque-velocidad .desplegable {
+
+    left: 0;
+
+}
+
+
+/* =========================================
+   DECISIÓN
+   MISMA POSICIÓN QUE VELOCIDAD
+========================================= */
+
+.bloque-decision:hover .cuadrado-icono {
+
+    transform: translateX(-473px);
+
+}
+
+
+.bloque-decision .desplegable {
+
+    left: -473px;
+
+}
+
+
+/* =========================================
+   INTENCIÓN
+========================================= */
+
+.bloque-intencion .desplegable {
+
+    left: -946px;
+
+}
+
+
+.bloque-intencion:hover .cuadrado-icono {
+
+    transform: translateX(-946px);
+
+}
+
+
+/* =========================================
+   ANIMACIÓN
+========================================= */
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(8px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1250px) {
+
+    .tarjetas {
+
+        gap: 35px;
+
+    }
+
+    .bloque {
+
+        width: 280px;
+
+    }
+
+    .cuadrado-icono {
+
+        width: 280px;
+
+    }
+
+    .fondo-icono {
+
+        width: 235px;
+
+    }
+
+}
+
+
+@media (max-width: 1000px) {
+
+    .conclusion {
+
+        min-width: 1000px;
+
+    }
+
+}

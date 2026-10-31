@@ -1,0 +1,1154 @@
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #0B0B13;
+    color: #F5F3FF;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/* =========================================================
+   PANTALLA PRINCIPAL
+========================================================= */
+
+.timeline {
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+    min-height: 1024px;
+    margin: 0 auto;
+    background: #0B0B13;
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   DEGRADADO SUPERIOR
+========================================================= */
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 55%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #302A69 0%,
+            #302A69 50%,
+            #0B0B13 100%
+        );
+
+    opacity: 0.55;
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   MENÚ SUPERIOR
+========================================================= */
+
+.menu-superior {
+    position: absolute;
+
+    left: 74px;
+    top: 0;
+
+    width: 265px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+
+    background: #635396;
+
+    border-radius: 0 0 10px 10px;
+
+    z-index: 20;
+}
+
+
+/* =========================================================
+   BOTONES DEL MENÚ
+========================================================= */
+
+.menu-icono {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.menu-icono img {
+    display: block;
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   HERRAMIENTA
+========================================================= */
+
+.herramienta-button {
+    left: 36px;
+    top: 11px;
+
+    width: 37px;
+    height: 36px;
+}
+
+.herramienta-button img {
+    width: 35px;
+    height: 36px;
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+.home-button {
+    left: 121px;
+    top: 11px;
+
+    width: 37.28px;
+    height: 35.42px;
+}
+
+.home-button img {
+    width: 37.28px;
+    height: 35.42px;
+}
+
+
+/* =========================================================
+   RELOJ
+========================================================= */
+
+.reloj-button {
+    left: 205px;
+    top: 11px;
+
+    width: 24.79px;
+    height: 35.42px;
+}
+
+.reloj-button img {
+    width: 24.79px;
+    height: 35.42px;
+}
+
+
+/* =========================================================
+   CARTEL DEL RELOJ
+========================================================= */
+
+.cartel-reloj {
+    position: absolute;
+
+    left: 285px;
+    top: 70px;
+
+    width: 300px;
+    min-height: 100px;
+
+    padding: 22px 28px;
+
+    background: #FFFFFF;
+    color: #0B0B13;
+
+    border-radius: 15px;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    line-height: 1.3;
+
+    z-index: 50;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-8px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.25);
+
+    pointer-events: none;
+}
+
+.cartel-reloj.mostrar {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.cartel-reloj p {
+    margin: 0;
+}
+
+.cartel-reloj strong {
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   TÍTULO GENERAL DE LA TIMELINE
+========================================================= */
+
+.titulo-principal {
+    position: absolute;
+
+    left: 127px;
+    top: 123px;
+
+    width: 850px;
+
+    margin: 0;
+
+    font-family: "Anton", sans-serif;
+
+    /* MÁS CHICO */
+    font-size: 38px;
+    font-weight: 400;
+
+    line-height: 46px;
+
+    color: #F5F3FF;
+
+    white-space: nowrap;
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   LÍNEA PRINCIPAL
+========================================================= */
+
+.linea-principal {
+    position: absolute;
+
+    left: 127px;
+    top: 194px;
+
+    width: 1009px;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #101018 0%,
+            #3529BF 35%,
+            #4737FF 61%,
+            #ACA5FF 100%
+        );
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.contenido-anio {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   BLOQUE DE TEXTO
+========================================================= */
+
+.texto-anio {
+    position: absolute;
+
+    left: 127px;
+    top: 222px;
+
+    width: 700px;
+}
+
+
+/* =========================================================
+   AÑO
+========================================================= */
+
+.anio {
+    width: 650px;
+
+    margin: 0;
+
+    font-family: "Anton", sans-serif;
+
+    /* ANTES 82px */
+    font-size: 64px;
+
+    font-weight: 400;
+
+    line-height: 72px;
+
+    letter-spacing: -0.01em;
+
+    color: #F5F3FF;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   SUBTÍTULO
+========================================================= */
+
+.titulo-anio {
+    width: 600px;
+
+    margin: 5px 0 0 0;
+
+    font-family: "Anton", sans-serif;
+
+    /* MÁS CHICO */
+    font-size: 28px;
+
+    font-weight: 400;
+
+    line-height: 34px;
+
+    color: #F5F3FF;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   ÍCONO DEL AÑO
+========================================================= */
+
+.icono-anio {
+    position: absolute;
+
+    left: 285px;
+    top: 5px;
+
+    width: 100px;
+    height: 100px;
+
+    object-fit: contain;
+
+    z-index: 8;
+}
+
+.icono-anio.icono-2018 {
+    left: 460px;
+}
+
+.icono-anio.icono-2025 {
+    left: 460px;
+}
+
+/* =========================================================
+   LÍNEA SECUNDARIA
+========================================================= */
+
+.linea-secundaria {
+    width: 600px;
+    height: 1px;
+
+    margin-top: 12px;
+
+    background:
+        rgba(209, 205, 255, 0.60);
+}
+
+
+/* =========================================================
+   INFORMACIÓN
+========================================================= */
+
+.informacion {
+    width: 710px;
+
+    margin-top: 32px;
+
+    font-family: "Montserrat", sans-serif;
+
+    /* INFO MÁS GRANDE */
+    font-size: 31px;
+
+    font-weight: 400;
+
+    line-height: 39px;
+
+    letter-spacing: 0.005em;
+
+    color: #FFFFFF;
+}
+
+.informacion p {
+    display: grid;
+
+    grid-template-columns: 25px 1fr;
+
+    column-gap: 15px;
+
+    margin: 0 0 29px 0;
+}
+
+.informacion p:last-child {
+    margin-bottom: 0;
+}
+
+.informacion strong {
+    font-weight: 700;
+}
+
+.viñeta {
+    display: block;
+
+    width: 25px;
+
+    color: #D965FF;
+
+    text-align: left;
+}
+
+.informacion p {
+    display: grid;
+
+    grid-template-columns: 22px 1fr;
+
+    column-gap: 13px;
+
+    margin: 0 0 25px 0;
+}
+
+.informacion p:last-child {
+    margin-bottom: 0;
+}
+
+.informacion strong {
+    font-weight: 700;
+}
+
+.viñeta {
+    display: block;
+
+    width: 22px;
+
+    color: #D965FF;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   CONTENEDOR DE IMÁGENES
+========================================================= */
+
+.imagen-contenedor {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 4;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   FONDO DE IMAGEN 1
+========================================================= */
+
+.imagen-fondo-1 {
+    position: absolute;
+
+    left: 850px;
+    top: 275px;
+
+    /* MÁS GRANDE */
+    width: 405px;
+    height: 405px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4737FF 0%,
+            #359BFF 50%,
+            #ACA5FF 100%
+        );
+
+    opacity: 0.35;
+
+    border:
+        1px solid rgba(209, 205, 255, 0.45);
+
+    transform: rotate(15deg);
+
+    backdrop-filter: blur(15px);
+
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.15);
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   FONDO DE IMAGEN 2
+========================================================= */
+
+.imagen-fondo-2 {
+    position: absolute;
+
+    left: 842px;
+    top: 300px;
+
+    /* MÁS GRANDE */
+    width: 405px;
+    height: 405px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4737FF 0%,
+            #359BFF 50%,
+            #ACA5FF 100%
+        );
+
+    opacity: 0.35;
+
+    border:
+        1px solid rgba(209, 205, 255, 0.45);
+
+    transform: rotate(-8deg);
+
+    backdrop-filter: blur(15px);
+
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.15);
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   IMAGEN PRINCIPAL
+========================================================= */
+
+.imagen-timeline {
+    position: absolute;
+
+    left: 855px;
+    top: 320px;
+
+    /* MÁS GRANDE */
+    width: 405px;
+    height: 405px;
+
+    object-fit: cover;
+
+    border-radius: 30px;
+
+    transform:
+        translate(0, 0)
+        rotate(0.46deg)
+        scale(1);
+
+    transform-origin: center center;
+
+    opacity: 0;
+
+    z-index: 4;
+
+    transition:
+        transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 450ms ease,
+        filter 0.2s ease;
+
+    will-change: transform, opacity;
+
+    pointer-events: auto;
+
+    cursor: zoom-in;
+}
+
+.imagen-timeline.imagen-activa {
+    opacity: 1;
+
+    transform:
+        translate(0, 0)
+        rotate(0.46deg)
+        scale(1);
+
+    z-index: 5;
+}
+
+.imagen-timeline.imagen-atras {
+    opacity: 1;
+
+    transform:
+        translate(-30px, 10px)
+        rotate(-4deg)
+        scale(0.975);
+
+    z-index: 3;
+}
+
+.imagen-timeline.imagen-entra {
+    opacity: 1;
+
+    transform:
+        translate(0, 0)
+        rotate(0.46deg)
+        scale(1);
+
+    z-index: 5;
+}
+
+.imagen-timeline:hover {
+    filter: brightness(1.06);
+}
+
+
+/* =========================================================
+   ILUMINACIÓN DE LA IMAGEN
+========================================================= */
+
+.iluminacion-imagen {
+    position: absolute;
+
+    left: 855px;
+    top: 320px;
+
+    width: 405px;
+    height: 405px;
+
+    border-radius: 30px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.10) 0%,
+            rgba(255, 255, 255, 0) 70%
+        );
+
+    transform: rotate(0.46deg);
+
+    box-shadow:
+        0 4px 80px rgba(0, 0, 0, 0.10),
+        0 4px 50px rgba(0, 0, 0, 0.20);
+
+    z-index: 6;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   TEXTO DEBAJO DE LA IMAGEN
+========================================================= */
+
+.texto-imagen {
+    position: absolute;
+
+    left: 850px;
+    top: 742px;
+
+    width: 420px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 19px;
+    font-weight: 400;
+
+    line-height: 25px;
+
+    text-align: center;
+
+    color: #FFFFFF;
+
+    transition:
+        opacity 300ms ease,
+        transform 300ms ease;
+}
+
+
+/* =========================================================
+   DECORACIÓN IZQUIERDA
+========================================================= */
+
+.deco-izquierda {
+    position: absolute;
+
+    left: -200px;
+    top: 651px;
+
+    width: 479.76px;
+    height: 543.76px;
+
+    object-fit: contain;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   ELIMINAR TUERCA ANTIGUA
+========================================================= */
+
+.zona-info {
+    display: none !important;
+}
+
+
+/* =========================================================
+   SLIDER
+========================================================= */
+
+.slider {
+    position: absolute;
+
+    left: 175px;
+    top: 871px;
+
+    width: 1079px;
+    height: 72px;
+
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+.slider-barra {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 1079px;
+    height: 72px;
+
+    border-radius: 36px;
+
+    border:
+        1px solid rgba(209, 205, 255, 0.75);
+
+    background:
+        linear-gradient(
+            90deg,
+            #3B2CFF 0%,
+            #6B3FFF 45%,
+            #D77BEB 100%
+        );
+
+    box-shadow:
+        0 0 55px rgba(180, 92, 255, 0.25),
+        0 0 25px rgba(107, 63, 255, 0.55);
+}
+
+.slider-circulo {
+    position: absolute;
+
+    left: 13px;
+    top: -5px;
+
+    width: 84px;
+    height: 84px;
+
+    border-radius: 50%;
+
+    background: rgba(247, 92, 3, 0.90);
+
+    border:
+        2px solid #FFFFFF;
+
+    z-index: 5;
+
+    cursor: grab;
+
+    pointer-events: auto;
+
+    transition:
+        left 550ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 180ms ease;
+}
+
+.slider-circulo:active {
+    cursor: grabbing;
+}
+
+.slider-circulo.arrastrando {
+    transition: none;
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   TUTORIAL
+========================================================= */
+
+.dedo-icono {
+    position: absolute;
+
+    left: 205px;
+    top: 925px;
+
+    width: 61px;
+    height: 69px;
+
+    object-fit: contain;
+
+    z-index: 20;
+
+    opacity: 1;
+
+    transition:
+        opacity 400ms ease,
+        transform 400ms ease;
+}
+
+.flecha-indicacion {
+    position: absolute;
+
+    left: 285px;
+    top: 972px;
+
+    width: 103px;
+    height: 20px;
+
+    z-index: 20;
+
+    opacity: 1;
+
+    transition:
+        opacity 400ms ease,
+        transform 400ms ease;
+}
+
+.dedo-icono.tutorial-oculto,
+.flecha-indicacion.tutorial-oculto {
+    opacity: 0;
+
+    transform: translateY(8px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   IMAGEN AMPLIADA
+========================================================= */
+
+/* La ventana está OCULTA al entrar a la página */
+.modal-imagen {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(11, 11, 19, 0.90);
+
+    z-index: 9999;
+
+    padding: 35px;
+}
+
+
+/* Cuando se activa */
+.modal-imagen.activo {
+    display: flex;
+}
+
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.modal-contenido {
+    position: relative;
+
+    width: 94vw;
+    height: 92vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   IMAGEN GRANDE
+========================================================= */
+
+#imagen-ampliada {
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    max-width: 90vw;
+    max-height: 88vh;
+
+    object-fit: contain;
+
+    border-radius: 26px;
+
+    box-shadow:
+        0 0 90px rgba(71, 55, 255, 0.30),
+        0 30px 100px rgba(0, 0, 0, 0.70);
+
+    cursor: default;
+}
+
+
+/* =========================================================
+   BOTÓN CERRAR
+========================================================= */
+
+.cerrar-imagen {
+    position: absolute;
+
+    top: -5px;
+    right: -5px;
+
+    width: 55px;
+    height: 55px;
+
+    border: 2px solid #FFFFFF;
+
+    border-radius: 50%;
+
+    background: #F75C03;
+
+    color: #FFFFFF;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 34px;
+
+    line-height: 48px;
+
+    text-align: center;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    z-index: 10001;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.cerrar-imagen:hover {
+    transform: scale(1.08);
+
+    background: #FF7020;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .modal-imagen {
+        padding: 20px;
+    }
+
+    #imagen-ampliada {
+        max-width: 94vw;
+        max-height: 86vh;
+    }
+
+    .cerrar-imagen {
+        width: 48px;
+        height: 48px;
+
+        font-size: 28px;
+
+        line-height: 42px;
+    }
+}
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1280px) {
+
+    .titulo-principal {
+        left: 8.82%;
+    }
+
+    .linea-principal {
+        left: 8.82%;
+        width: 78%;
+    }
+
+    .texto-anio {
+        left: 8.82%;
+    }
+
+    .texto-imagen {
+        left: 60%;
+    }
+
+    .slider {
+        left: 12%;
+        width: 76%;
+    }
+
+    .slider-barra {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 1100px) {
+
+    .titulo-principal {
+        font-size: 34px;
+        width: 760px;
+    }
+
+    .anio {
+        font-size: 56px;
+    }
+
+    .titulo-anio {
+        font-size: 25px;
+    }
+
+    .informacion {
+        font-size: 22px;
+        width: 500px;
+    }
+
+    .texto-imagen {
+        left: 58%;
+        width: 390px;
+        font-size: 17px;
+    }
+
+    .menu-superior {
+        left: 5%;
+    }
+}
+
+
+@media (max-width: 950px) {
+
+    .titulo-principal {
+        left: 6%;
+        font-size: 31px;
+        width: 700px;
+    }
+
+    .linea-principal {
+        left: 6%;
+        width: 80%;
+    }
+
+    .texto-anio {
+        left: 6%;
+    }
+
+    .anio {
+        font-size: 52px;
+    }
+
+    .titulo-anio {
+        font-size: 23px;
+    }
+
+    .informacion {
+        width: 420px;
+        font-size: 19px;
+    }
+
+    .texto-imagen {
+        left: 57%;
+        width: 350px;
+        font-size: 17px;
+    }
+
+    .slider {
+        left: 8%;
+        width: 84%;
+    }
+
+    .slider-barra {
+        width: 100%;
+    }
+
+    .menu-superior {
+        width: 265px;
+    }
+}
