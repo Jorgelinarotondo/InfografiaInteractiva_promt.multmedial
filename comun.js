@@ -142,11 +142,11 @@
             desc: "Volver a la portada"
         },
         {
-            id: "nucleo",
-            url: "nucleo.html",
-            icono: "imagenes/herramienta.png",
-            titulo: "IA COMO HERRAMIENTA",
-            desc: "Límites, editar, inspirar, generar"
+            id: "conclusion",
+            url: "conclusion.html",
+            icono: "imagenes/conclusion ojo.png",
+            titulo: "LO QUE HAY DETRÁS",
+            desc: "Velocidad, decisión, intención"
         },
         {
             id: "timeline",
@@ -156,11 +156,11 @@
             desc: "Cómo evolucionó, 2014 → 2026"
         },
         {
-            id: "conclusion",
-            url: "conclusion.html",
-            icono: "imagenes/conclusion ojo.png",
-            titulo: "LO QUE HAY DETRÁS",
-            desc: "Velocidad, decisión, intención"
+            id: "nucleo",
+            url: "nucleo.html",
+            icono: "imagenes/herramienta.png",
+            titulo: "IA COMO HERRAMIENTA",
+            desc: "Límites, editar, inspirar, generar"
         }
     ];
 
